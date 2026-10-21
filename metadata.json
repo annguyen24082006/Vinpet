@@ -1,0 +1,6 @@
+{
+  "name": "VinPet - Hệ Thống Bệnh Viện Thú Y & Resort Thú Cưng",
+  "description": "VinPet mang đến dịch vụ chăm sóc thú cưng cao cấp 24/7 với đội ngũ Bác sĩ Thú y & Master Groomer tận tâm, khách sạn thú cưng sang trọng và tiện ích toàn diện.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
