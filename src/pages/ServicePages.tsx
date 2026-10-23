@@ -60,10 +60,46 @@ export function PetStayPage({ navigate }: { navigate: (p: string) => void }) {
 export function SpaPage() {
   const { t, money } = useLang();
   const spaPackages = [
-    { name: t('Tắm trị liệu', 'Therapeutic bath'), desc: t('Tắm sâu, dưỡng ẩm, sấy tạo phom, vệ sinh tai/mắt.', 'Deep cleansing bath, moisturising, blow-dry styling, and ear and eye cleaning.'), duration: t('60 phút', '60 min'), price: 250000, img: 'https://images.pexels.com/photos/19145895/pexels-photo-19145895.jpeg?auto=compress&cs=tinysrgb&w=800' },
-    { name: t('Cắt tỉa tạo kiểu', 'Styling trim'), desc: t('Tư vấn kiểu, cắt tỉa theo giống, tỉa lông vùng mắt/móng.', 'Style consultation, a breed-specific trim, and tidying around the eyes and paws.'), duration: t('90 phút', '90 min'), price: 550000, img: 'https://images.pexels.com/photos/6816841/pexels-photo-6816841.jpeg?auto=compress&cs=tinysrgb&w=800' },
-    { name: t('Dưỡng lông cao cấp', 'Luxury coat care'), desc: t('Mặt nạ lông hữu cơ, dầu dưỡng, massage thư giãn.', 'An organic coat mask, nourishing oil and a relaxing massage.'), duration: t('75 phút', '75 min'), price: 650000, img: 'https://images.pexels.com/photos/19145897/pexels-photo-19145897.jpeg?auto=compress&cs=tinysrgb&w=800' },
-    { name: t('Vệ sinh tai & tuyến hôi', 'Ear & scent-gland cleaning'), desc: t('Làm sạch chuyên sâu, giảm mùi, kiểm tra da.', 'Thorough cleaning that reduces odour, plus a gentle skin check.'), duration: t('45 phút', '45 min'), price: 350000, img: 'https://images.pexels.com/photos/19145879/pexels-photo-19145879.jpeg?auto=compress&cs=tinysrgb&w=800' },
+    {
+      name: t('Tắm trị liệu', 'Basic Pet Grooming'),
+      desc: t(
+        'Liệu trình làm sạch toàn diện kết hợp dưỡng ẩm da và lông, sấy khô, cắt móng, cùng vệ sinh tai và mắt chu đáo.',
+        'A thorough cleansing treatment featuring skin and coat moisturizing, blow-drying, nail trimming, and ear and eye cleaning.'
+      ),
+      duration: t('60 phút', '60 minutes'),
+      price: 400000,
+      img: 'https://images.pexels.com/photos/19145895/pexels-photo-19145895.jpeg?auto=compress&cs=tinysrgb&w=800',
+    },
+    {
+      name: t('Cắt tỉa & tạo kiểu', 'Haircut & Styling'),
+      desc: t(
+        'Bao gồm trọn gói dịch vụ Vệ Sinh Cơ Bản, kết hợp tư vấn tạo kiểu riêng, cắt tỉa toàn thân phù hợp theo từng giống loài và tạo dáng tỉ mỉ bằng kéo chuyên dụng.',
+        'Includes everything in the Basic Grooming package, plus personalized style consultations, breed-appropriate body trimming, and precise scissoring.'
+      ),
+      duration: t('90 phút', '90 minutes'),
+      price: 550000,
+      img: 'https://images.pexels.com/photos/6816841/pexels-photo-6816841.jpeg?auto=compress&cs=tinysrgb&w=800',
+    },
+    {
+      name: t('Dưỡng lông cao cấp', 'Premium Coat Conditioning'),
+      desc: t(
+        'Liệu trình chăm sóc chuyên sâu giúp nuôi dưỡng bộ lông mềm mượt với mặt nạ xả hữu cơ (organic), tinh dầu dưỡng chuyên dụng và tắm bồn thư giãn. (Giải pháp lý tưởng để gỡ rối và phục hồi độ bóng mượt cho lông).',
+        'An indulgent coat care treatment featuring an organic conditioning mask, specialized nourishing oils, and a relaxing bath. (Ideal for detangling and restoring shine).'
+      ),
+      duration: t('75 phút', '75 minutes'),
+      price: 550000,
+      img: 'https://images.pexels.com/photos/19145897/pexels-photo-19145897.jpeg?auto=compress&cs=tinysrgb&w=800',
+    },
+    {
+      name: t('Vệ sinh tai & tuyến hôi', 'Ear Cleaning & Anal Gland Care'),
+      desc: t(
+        'Quy trình làm sạch tai nhẹ nhàng và vắt tuyến hôi giúp khử mùi triệt để, đi kèm bước kiểm tra tổng quát tình trạng da bên ngoài cho bé.',
+        'Gentle ear cleaning and anal gland expression to help manage odors, accompanied by a basic skin condition check.'
+      ),
+      duration: t('20 phút', '20 minutes'),
+      price: 150000,
+      img: 'https://images.pexels.com/photos/19145879/pexels-photo-19145879.jpeg?auto=compress&cs=tinysrgb&w=800',
+    },
   ];
 
   return (
@@ -73,17 +109,17 @@ export function SpaPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-sapphire-950/50 to-sapphire-950/90" />
         <div className="relative mx-auto flex h-full max-w-7xl items-center px-5 sm:px-8">
           <div className="max-w-2xl">
-            <p className="eyebrow text-gold-300">Pet Spa & Grooming</p>
+            <p className="eyebrow text-gold-300">{t('DỊCH VỤ VINPET', 'VINPET SERVICES')}</p>
             <h1 className="heading-1 mt-3 text-ivory">
               {t(
-                <>Chăm sóc sắc đẹp <span className="text-gold-gradient">chuẩn cao</span></>,
-                <>Pampering to the <span className="text-gold-gradient">highest standard</span></>
+                <>Spa & Grooming - <span className="text-gold-gradient">Chăm sóc và làm đẹp chuyên nghiệp</span></>,
+                <>Spa & Grooming – <span className="text-gold-gradient">Professional Care & Styling</span></>
               )}
             </h1>
             <p className="mt-4 max-w-lg text-sapphire-200">
               {t(
-                'Mỹ phẩm hữu cơ an toàn cho da nhạy cảm, quy trình kiểm tra da lông trước khi làm dịch vụ.',
-                'Organic products that are gentle on sensitive skin, and a careful skin and coat check before every service.'
+                'Khám phá các liệu trình chăm sóc được thiết kế phù hợp với nhu cầu của từng thú cưng, từ vệ sinh cơ bản đến dưỡng lông chuyên sâu và tạo kiểu.',
+                'Discover thoughtfully tailored grooming treatments designed around your pet’s individual needs, from essential hygiene care to intensive coat conditioning and professional styling.'
               )}
             </p>
           </div>
@@ -91,7 +127,14 @@ export function SpaPage() {
       </section>
 
       <section className="section-pad bg-ivory">
-        <SectionHeading eyebrow={t('Các gói dịch vụ', 'Our packages')} title={t(<>Gói <span className="text-gold-gradient">spa & grooming</span></>, <><span className="text-gold-gradient">Spa & grooming</span> packages</>)} subtitle={t('Giá áp dụng cho thú cưng dưới 15kg. Trên 15kg phụ thu 20%.', 'Prices are for pets under 15 kg. A 20% surcharge applies to pets over 15 kg.')} />
+        <SectionHeading
+          eyebrow={t('Dịch vụ Spa & Grooming', 'Spa & Grooming Services')}
+          title={t(<>Gói <span className="text-gold-gradient">spa & grooming</span></>, <><span className="text-gold-gradient">Spa & grooming</span> packages</>)}
+          subtitle={t(
+            'Bảng giá áp dụng cho thú cưng dưới 15 kg. Thú cưng trên 15 kg áp dụng phụ thu 20%.',
+            'Pricing applies to pets weighing under 15 kg. A 20% surcharge applies to pets weighing over 15 kg.'
+          )}
+        />
         <div className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-2">
           {spaPackages.map((p) => (
             <div key={p.name} className="card-luxe flex overflow-hidden">
@@ -156,17 +199,17 @@ export function DaycarePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-sapphire-950/50 to-sapphire-950/90" />
         <div className="relative mx-auto flex h-full max-w-7xl items-center px-5 sm:px-8">
           <div className="max-w-2xl">
-            <p className="eyebrow text-gold-300">Day-care</p>
+            <p className="eyebrow text-gold-300">{t('DAY-CARE | TRÔNG GIỮ THÚ CƯNG', 'DAY CARE | PET SITTING')}</p>
             <h1 className="heading-1 mt-3 text-ivory">
               {t(
-                <>Trông giữ <span className="text-gold-gradient">theo giờ/ngày</span></>,
-                <>Day-care by the <span className="text-gold-gradient">hour or day</span></>
+                <>An tâm trải nghiệm, <span className="text-gold-gradient">thú cưng luôn được chăm sóc</span></>,
+                <>Enjoy Your Stay, <span className="text-gold-gradient">Knowing Your Pet Is in Caring Hands</span></>
               )}
             </h1>
             <p className="mt-4 max-w-lg text-sapphire-200">
               {t(
-                'Giải pháp khi bạn muốn vào VinWonders hoặc nhà hàng không cho phép thú cưng. Camera giám sát 24/7 truyền trực tiếp về điện thoại.',
-                'The perfect solution for visiting VinWonders or restaurants where pets aren’t allowed. A 24/7 camera streams live to your phone, so you can check in anytime.'
+                'Giải pháp trông giữ linh hoạt theo giờ hoặc cả ngày, dành cho những lúc bạn tham gia các hoạt động, vui chơi hay dùng bữa tại những địa điểm chưa phù hợp để đưa thú cưng đi cùng. Với hệ thống camera trực tuyến, bạn có thể theo dõi người bạn bốn chân ngay trên điện thoại, dù đang ở bất cứ đâu trong khuôn viên.',
+                'Flexible hourly and full-day pet care, thoughtfully designed for those moments when you wish to enjoy activities, entertainment, or dining experiences at venues that are not suitable for pets. With our live camera system, you can check in on your four-legged companion directly from your phone, wherever you are on the property.'
               )}
             </p>
           </div>
@@ -177,9 +220,27 @@ export function DaycarePage() {
       <section className="section-pad bg-ivory">
         <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-3">
           {[
-            { t: t('Camera 24/7', '24/7 camera'), d: t('Truyền trực tiếp webcam phòng con bạn về điện thoại.', 'Watch a live webcam of your pet’s room right on your phone.') },
-            { t: t('Khu vực trong nhà', 'Indoor play area'), d: t('Điều hòa, nhân viên túc trực chơi cùng thú cưng.', 'Air-conditioned, with staff always on hand to play with your pet.') },
-            { t: 'Live Camera Access', d: t('Khách đặt Day-care nhận mã PIN để xem webcam mọi lúc.', 'Guests who book Day-care receive a PIN to watch the webcam anytime.') },
+            {
+              t: t('Livestream/Camera 24/7', '24/7 Live Camera Streaming'),
+              d: t(
+                'Khách lưu trú có thể mở app VinID/Vinpearl để xem cún cưng của mình đang làm gì.',
+                'Pet owners can easily access the VinID or Vinpearl app at any time to check in and see what their beloved canine is up to.'
+              ),
+            },
+            {
+              t: t('Hạ tầng chuẩn resort', 'Resort-Standard Infrastructure'),
+              d: t(
+                'Phòng máy lạnh 100%, có khu bãi cỏ ngoài trời an toàn để các bé chạy nhảy',
+                'Fully air-conditioned indoor spaces, complemented by a safe outdoor grassy area where pets can run, play, and explore freely.'
+              ),
+            },
+            {
+              t: t('Chăm sóc chuyên nghiệp', 'Professional Care'),
+              d: t(
+                'Đã bao gồm bữa ăn nhẹ (pate cao cấp hoặc súp thưởng), nước uống tinh khiết và có nhân viên dắt đi dạo 2 lần/ngày',
+                'Enjoy complimentary light meals, including premium pâté or treat soups, fresh drinking water, and two supervised walks per day with our dedicated team.'
+              ),
+            },
           ].map((x) => (
             <div key={x.t} className="card-luxe p-6 text-center">
               <h3 className="font-display text-xl font-semibold text-sapphire-900">{x.t}</h3>
@@ -192,7 +253,10 @@ export function DaycarePage() {
       {/* booking */}
       <section className="section-pad bg-cream">
         <div className="mx-auto max-w-2xl">
-          <SectionHeading eyebrow={t('Đặt lịch', 'Booking')} title={t(<>Đặt lịch <span className="text-gold-gradient">Day-care</span></>, <>Book <span className="text-gold-gradient">Day-care</span></>)} />
+          <SectionHeading
+            eyebrow={t('DAY-CARE', 'DAY CARE')}
+            title={t(<>Đặt lịch <span className="text-gold-gradient">Day-care</span></>, <>Book <span className="text-gold-gradient">Pet Day Care</span></>)}
+          />
           {done ? (
             <div className="mt-8 rounded-3xl border border-sapphire-100 bg-white p-8 text-center shadow-soft">
               <h3 className="heading-3 text-sapphire-900">{t('Đặt lịch thành công!', 'Your booking is confirmed!')}</h3>
@@ -203,11 +267,11 @@ export function DaycarePage() {
           ) : (
             <div className="mt-8 space-y-4 rounded-3xl border border-sapphire-100 bg-white p-6 shadow-soft">
               <div>
-                <p className="label-luxe">{t('Chọn gói', 'Choose a plan')}</p>
+                <p className="label-luxe">{t('Chọn gói', 'Select Your Package')}</p>
                 <div className="grid grid-cols-2 gap-3">
                   {[
-                    { id: 'hourly', label: t('Theo giờ', 'By the hour'), price: `${money(180000)}${t('/giờ', ' / hour')}` },
-                    { id: 'daily', label: t('Trọn ngày', 'Full day'), price: `${money(1200000)}${t('/ngày', ' / day')}` },
+                    { id: 'hourly', label: t('Theo giờ', 'Hourly Care'), price: `${money(110000)}${t('/giờ', ' / hour')}` },
+                    { id: 'daily', label: t('Trọn ngày', 'Full-Day Care'), price: `${money(999000)}${t('/ngày', ' / day')}` },
                   ].map((p) => (
                     <button key={p.id} onClick={() => setPkg(p.id as 'hourly' | 'daily')} className={`rounded-xl border-2 px-4 py-3 text-left ${pkg === p.id ? 'border-gold-400 bg-gold-50' : 'border-sapphire-100'}`}>
                       <p className="text-sm font-bold text-sapphire-900">{p.label}</p>
@@ -241,17 +305,46 @@ export function DaycarePage() {
 export function PetParkPage() {
   const { t, money } = useLang();
   const menu = [
-    { section: t('Menu thú cưng', 'Pet menu'), items: [
-      { name: 'Puppuccino', desc: t('Kem whipping không đường, an toàn cho chó', 'Sugar-free whipped cream, safe for dogs'), price: 65000 },
-      { name: 'Paw-tato', desc: t('Bánh quy ngũ cốc hữu cơ', 'Organic grain cookies'), price: 55000 },
-      { name: 'Meow-chiato', desc: t('Sữa dừa cho mèo, kích thích vị giác', 'Coconut milk for cats, a treat for the taste buds'), price: 60000 },
-      { name: 'Bark-becue', desc: t('Gà nướng thái nhỏ, không gia vị', 'Shredded grilled chicken, no seasoning'), price: 95000 },
-    ] },
-    { section: t('Menu người', 'Human menu'), items: [
-      { name: t('Cà phê specialty', 'Specialty coffee'), desc: t('Hạt Arabica Việt Nam rang vừa', 'Vietnamese Arabica beans, medium roast'), price: 55000 },
-      { name: t('Trà trái cây', 'Fruit tea'), desc: t('Trà hoa quả nhiệt đới', 'Refreshing tropical fruit tea'), price: 65000 },
-      { name: t('Bánh ngọt tươi', 'Fresh pastries'), desc: t('Croissant, muffin, bánh tiêu', 'Croissants, muffins and Vietnamese doughnuts'), price: 45000 },
-    ] },
+    {
+      section: t('Menu thú cưng', 'Pet Menu'),
+      items: [
+        {
+          name: 'Puppuccino',
+          desc: t('Sữa chuyên dụng cho thú cưng (Pet Milk) sục bọt mịn.', 'Frothed Pet Milk — Smooth, velvety foam made with specially formulated pet milk.'),
+          price: 65000,
+        },
+        {
+          name: 'Paw-tato',
+          desc: t('Bánh quy ngũ cốc hữu cơ', 'Organic Grain Biscuits — Wholesome biscuits made with organic grains for a delightful little treat.'),
+          price: 55000,
+        },
+        {
+          name: 'Cat-Pudding',
+          desc: t('Nước hầm xương gà đông thành pudding', 'Chicken Bone Broth Pudding — A savoury pudding made from chicken bone broth, gently set to create a soft, jelly-like texture for feline companions.'),
+          price: 60000,
+        },
+        {
+          name: 'Bark-becue',
+          desc: t('Gà nướng thái nhỏ, không gia vị', 'Grilled Chicken Bites — Tender pieces of grilled chicken, prepared without seasoning.'),
+          price: 95000,
+        },
+      ],
+    },
+    {
+      section: t('Menu người', 'Human Menu'),
+      items: [
+        { name: t('Cà phê specialty', 'Specialty coffee'), desc: t('Hạt Arabica Việt Nam rang vừa', 'Vietnamese Arabica beans, medium roast'), price: 55000 },
+        { name: t('Trà trái cây', 'Fruit tea'), desc: t('Trà hoa quả nhiệt đới', 'Refreshing tropical fruit tea'), price: 65000 },
+        { name: t('Bánh ngọt tươi', 'Fresh pastries'), desc: t('Croissant, muffin, bánh tiêu', 'Croissants, muffins and Vietnamese doughnuts'), price: 45000 },
+      ],
+    },
+  ];
+
+  const amenities = [
+    { vi: 'Khu vận động Agility', en: 'Agility Play Zone' },
+    { vi: 'Thảm cỏ tự nhiên', en: 'Natural Grass Lawn' },
+    { vi: 'Không côn trùng/thuốc trừ sâu', en: 'Insecticide-Free Environment' },
+    { vi: 'Café dành cho cả bạn và thú cưng', en: 'Pet-Friendly Café' },
   ];
 
   return (
@@ -261,17 +354,17 @@ export function PetParkPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-sapphire-950/50 to-sapphire-950/90" />
         <div className="relative mx-auto flex h-full max-w-7xl items-center px-5 sm:px-8">
           <div className="max-w-2xl">
-            <p className="eyebrow text-gold-300">Pet Park & Café</p>
+            <p className="eyebrow text-gold-300">{t('PET PARK & CAFÉ | SÂN CHƠI & CÀ PHÊ', 'PET PARK & CAFÉ | PLAY & RELAX')}</p>
             <h1 className="heading-1 mt-3 text-ivory">
               {t(
-                <>Sân chơi <span className="text-gold-gradient">ngoài trời</span> & quầy F&B</>,
-                <>An <span className="text-gold-gradient">outdoor playground</span> & café counter</>
+                'Không gian vui chơi, những phút giây thư thái',
+                'Room to Play, Moments to Unwind'
               )}
             </h1>
             <p className="mt-4 max-w-lg text-sapphire-200">
               {t(
-                'Thảm cỏ tự nhiên kiểm tra định kỳ không côn trùng/thuốc trừ sâu, agility course, quầy cà phê cho cả người lẫn thú cưng.',
-                'Natural grass regularly checked to be free of insects and pesticides, an agility course, and a café counter for both people and pets.'
+                'Không gian ngoài trời dành cho những người bạn bốn chân thỏa sức vận động, khám phá và kết nối. Trong khi thú cưng tận hưởng thời gian vui chơi trên thảm cỏ xanh, chủ nuôi có thể thư giãn với cà phê và các món ăn nhẹ tại quầy café.',
+                'An inviting outdoor space where four-legged companions can stretch their legs, explore, and socialise. While pets enjoy carefree play on the lush green lawn, their owners can unwind over freshly brewed coffee and light bites at our café.'
               )}
             </p>
           </div>
@@ -279,19 +372,29 @@ export function PetParkPage() {
       </section>
 
       <section className="section-pad bg-ivory">
-        <SectionHeading eyebrow={t('Tiện ích', 'Facilities')} title={t(<>Sân chơi <span className="text-gold-gradient">an toàn tuyệt đối</span></>, <>A playground that is <span className="text-gold-gradient">completely safe</span></>)} />
+        <SectionHeading
+          eyebrow={t('TIỆN ÍCH', 'AMENITIES')}
+          title={t('Vui chơi thỏa thích, an tâm khám phá', 'Play Freely, Explore with Peace of Mind')}
+        />
         <div className="mx-auto mt-10 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {[t('Chướng ngại vật agility', 'Agility obstacles'), t('Thảm cỏ tự nhiên', 'Natural grass'), t('Kiểm tra không côn trùng/thuốc trừ sâu', 'Checked for insects and pesticides'), t('Quầy F&B cho người & thú cưng', 'Food & drink counter for people and pets')].map((t) => (
-            <div key={t} className="rounded-2xl border border-sapphire-100 bg-white p-5 text-center">
+          {amenities.map((item) => (
+            <div key={item.vi} className="rounded-2xl border border-sapphire-100 bg-white p-5 text-center">
               <Check className="mx-auto mb-2 h-6 w-6 text-sapphire-700" />
-              <p className="text-sm font-semibold text-sapphire-700">{t}</p>
+              <p className="text-sm font-semibold text-sapphire-700">{t(item.vi, item.en)}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="section-pad bg-cream">
-        <SectionHeading eyebrow="Pet Café Menu" title={t(<>Menu <span className="text-gold-gradient">Pet Café</span></>, <>The <span className="text-gold-gradient">Pet Café</span> menu</>)} subtitle={t('Đồ ăn và thức uống cho cả du khách và thú cưng.', 'Tasty food and drinks for guests and pets alike.')} />
+        <SectionHeading
+          eyebrow={t('PET CAFÉ MENU', 'PET CAFÉ MENU')}
+          title={t(<>Hương vị <span className="text-gold-gradient">dành cho mọi thành viên</span></>, <>A Taste <span className="text-gold-gradient">for Every Member of the Family</span></>)}
+          subtitle={t(
+            'Từ những món ăn nhẹ dành cho thú cưng đến cà phê và bánh ngọt dành cho chủ nuôi, mỗi lựa chọn góp phần làm nên những phút giây thư giãn trọn vẹn.',
+            'From delicious treats for your beloved pets to freshly brewed coffee and tempting pastries for their owners, every choice adds a little more pleasure to your moments of relaxation together.'
+          )}
+        />
         <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2">
           {menu.map((sec) => (
             <div key={sec.section} className="rounded-3xl border border-sapphire-100 bg-white p-6 shadow-soft">
@@ -351,9 +454,33 @@ export function EventsPage() {
   };
 
   const packages = [
-    { name: t('Tiệc sinh nhật Boss', 'Boss’s Birthday Party'), includes: [t('Trang trí theme', 'Themed decorations'), t('Bánh kem an toàn cho thú cưng', 'A pet-safe cake'), t('Photographer 2 giờ', '2 hours with a photographer'), t('Thiệp mời điện tử', 'E-invitations')] },
-    { name: t('Offline cộng đồng', 'Community Meetup'), includes: [t('Không gian riêng tại Pet Park', 'A private space at the Pet Park'), t('Teambuilding agility', 'Agility team-building'), t('Quầy F&B', 'Food & drink counter'), t('MC sự kiện', 'Event host (MC)')] },
-    { name: t('Mừng "Boss" tròn năm', 'Boss’s Anniversary'), includes: [t('Trang trí kỷ niệm', 'Anniversary decorations'), t('Bánh kem đôi (người + thú cưng)', 'Two cakes (one for people, one for pets)'), t('Album ảnh pro', 'A professional photo album'), t('Quà tặng kỷ niệm', 'A keepsake gift')] },
+    {
+      name: t('Tiệc sinh nhật cho Boss', 'Birthday Party for Your Furry Friend'),
+      includes: [
+        t('Trang trí theo chủ đề lựa chọn', 'Customisable themed decorations'),
+        t('Bánh sinh nhật với thành phần phù hợp cho thú cưng', 'A birthday cake made with pet-friendly ingredients'),
+        t('Dịch vụ chụp ảnh chuyên nghiệp trong 2 giờ', 'Professional photography for two hours'),
+        t('Thiệp mời điện tử dành cho khách tham dự', 'Digital invitations for guests'),
+      ],
+    },
+    {
+      name: t('Gặp gỡ cộng đồng thú cưng', 'Pet Community Gatherings'),
+      includes: [
+        t('Không gian tổ chức riêng tại Pet Park', 'A private event space at the Pet Park'),
+        t('Hoạt động vận động và thử thách Agility', 'Fun exercise activities and Agility challenges'),
+        t('Dịch vụ đồ ăn, thức uống tại quầy F&B', 'Food and beverage services from our F&B counter'),
+        t('MC điều phối và kết nối chương trình', 'A dedicated host to coordinate activities and engage guests'),
+      ],
+    },
+    {
+      name: t('Kỷ niệm ngày đặc biệt của Boss', 'Celebrating Your Pet’s Special Milestones'),
+      includes: [
+        t('Trang trí theo chủ đề kỷ niệm', 'Decorations tailored to your chosen celebration theme'),
+        t('Bánh kem dành riêng cho chủ nuôi và thú cưng', 'A celebratory cake for both pets and their owners'),
+        t('Album ảnh được thực hiện chuyên nghiệp', 'A professionally curated photo album'),
+        t('Quà tặng lưu niệm dành cho Boss', 'A commemorative gift for your beloved companion'),
+      ],
+    },
   ];
 
   return (
@@ -363,17 +490,17 @@ export function EventsPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-sapphire-950/50 to-sapphire-950/90" />
         <div className="relative mx-auto flex h-full max-w-7xl items-center px-5 sm:px-8">
           <div className="max-w-2xl">
-            <p className="eyebrow text-gold-300">Pet Events & Parties</p>
+            <p className="eyebrow text-gold-300">{t('PET EVENTS & PARTIES | SỰ KIỆN DÀNH CHO THÚ CƯNG', 'PET EVENTS & PARTIES')}</p>
             <h1 className="heading-1 mt-3 text-ivory">
               {t(
-                <>Tiệc cho <span className="text-gold-gradient">"Boss"</span> đáng nhớ</>,
-                <>A party your <span className="text-gold-gradient">“Boss”</span> will never forget</>
+                'Những dịp đặc biệt, những kỷ niệm đáng nhớ',
+                'Special Occasions, Unforgettable Memories'
               )}
             </h1>
             <p className="mt-4 max-w-lg text-sapphire-200">
               {t(
-                'Sinh nhật, offline cộng đồng, kỷ niệm tròn năm — tổ chức trọn gói với photographer riêng và thiệp mời điện tử.',
-                'Birthdays, community meetups and anniversaries, all planned for you with a personal photographer and e-invitations.'
+                'Từ tiệc sinh nhật đáng yêu đến những buổi gặp gỡ cộng đồng và dấu mốc đặc biệt của người bạn bốn chân, VinPet đồng hành cùng bạn tạo nên những sự kiện được chăm chút từ không gian, hoạt động đến từng khoảnh khắc đáng nhớ.',
+                'From adorable birthday parties to community gatherings and special milestones in your four-legged companion’s life, VinPet is here to help you create memorable celebrations, thoughtfully curated from the setting and activities to every little moment that makes the occasion special.'
               )}
             </p>
           </div>
@@ -381,7 +508,10 @@ export function EventsPage() {
       </section>
 
       <section className="section-pad bg-ivory">
-        <SectionHeading eyebrow={t('Gói sự kiện', 'Event packages')} title={t(<>Chi tiết <span className="text-gold-gradient">gói tổ chức</span></>, <>Package <span className="text-gold-gradient">details</span></>)} />
+        <SectionHeading
+          eyebrow={t('CÁC GÓI SỰ KIỆN', 'EVENT PACKAGES')}
+          title={t(<>Mỗi dịp vui, <span className="text-gold-gradient">một dấu ấn riêng</span></>, <>Every Celebration, <span className="text-gold-gradient">Uniquely Yours</span></>)}
+        />
         <div className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-3">
           {packages.map((p) => (
             <div key={p.name} className="card-luxe p-7">
