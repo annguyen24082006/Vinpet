@@ -247,8 +247,8 @@ export function HomePage({ navigate }: { navigate: (path: string) => void }) {
             <>A Complete Experience, <span className="text-gold-gradient">Thoughtfully Tailored to Every Need</span></>
           )}
           subtitle={t(
-            'Khám phá 5 nhóm dịch vụ dành cho thú cưng, từ lưu trú, vui chơi đến chăm sóc sắc đẹp và tổ chức sự kiện được thiết kế để mỗi trải nghiệm đều thoải mái, thú vị và đáng nhớ.',
-            'Explore our five categories of pet services, from comfortable stays and playful experiences to grooming and special celebrations. Each is thoughtfully designed to make every moment comfortable, enjoyable, and memorable for you and your beloved companion.'
+            'Khám phá 4 nhóm dịch vụ dành cho thú cưng từ vui chơi đến chăm sóc sắc đẹp và tổ chức sự kiện được thiết kế để mỗi trải nghiệm đều thoải mái, thú vị và đáng nhớ.',
+            'Explore our four categories of pet services playful experiences to grooming and special celebrations. Each is thoughtfully designed to make every moment comfortable, enjoyable, and memorable for you and your beloved companion.'
           )}
         />
         <div className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
