@@ -258,11 +258,17 @@ export function DaycarePage() {
             title={t(<>Đặt lịch <span className="text-gold-gradient">Day-care</span></>, <>Book <span className="text-gold-gradient">Pet Day Care</span></>)}
           />
           {done ? (
-            <div className="mt-8 rounded-3xl border border-sapphire-100 bg-white p-8 text-center shadow-soft">
-              <h3 className="heading-3 text-sapphire-900">{t('Đặt lịch thành công!', 'Your booking is confirmed!')}</h3>
-              <p className="mt-2 text-sapphire-600">{t('Mã PIN Live Camera của bạn:', 'Your Live Camera PIN:')}</p>
+            <div className="mt-8 rounded-3xl border-2 border-emerald-400 bg-white p-8 text-center shadow-soft">
+              <div className="mx-auto mb-3 grid h-14 w-14 place-items-center rounded-full bg-emerald-100 text-emerald-600">
+                <Check className="h-7 w-7 stroke-[3]" />
+              </div>
+              <h3 className="heading-2 font-display text-emerald-700">{t('Đã đặt lịch thành công', 'Booking successful')}</h3>
+              <p className="mt-2 text-sapphire-700">{t('Mã PIN Live Camera của bạn:', 'Your Live Camera PIN:')}</p>
               <p className="mt-2 font-display text-4xl font-bold tracking-widest text-gold-gradient">{done.pin}</p>
               <p className="mt-3 text-xs text-sapphire-500">{t('Dùng mã này để đăng nhập xem webcam trực tiếp từ điện thoại.', 'Use this code to log in and watch the live webcam from your phone.')}</p>
+              <button onClick={() => setDone(null)} className="btn-outline mt-6 text-xs">
+                {t('Đặt lịch thêm cho bé khác', 'Book another session')}
+              </button>
             </div>
           ) : (
             <div className="mt-8 space-y-4 rounded-3xl border border-sapphire-100 bg-white p-6 shadow-soft">
@@ -533,10 +539,15 @@ export function EventsPage() {
         <div className="mx-auto max-w-2xl">
           <SectionHeading eyebrow={t('Đăng ký', 'Sign up')} title={t(<>Tư vấn <span className="text-gold-gradient">tổ chức tiệc</span></>, <>Plan your <span className="text-gold-gradient">party</span> with us</>)} />
           {done ? (
-            <div className="mt-8 rounded-3xl border border-sapphire-100 bg-white p-8 text-center shadow-soft">
-              <Check className="mx-auto mb-3 h-10 w-10 text-sapphire-700" />
-              <h3 className="heading-3 text-sapphire-900">{t('Đã ghi nhận yêu cầu!', 'We’ve got your request!')}</h3>
-              <p className="mt-2 text-sapphire-600">{t('Đội ngũ sự kiện VinPet sẽ liên hệ với bạn trong vòng 24 giờ.', 'Our VinPet events team will be in touch within 24 hours 💛')}</p>
+            <div className="mt-8 rounded-3xl border-2 border-emerald-400 bg-white p-8 text-center shadow-soft">
+              <div className="mx-auto mb-3 grid h-14 w-14 place-items-center rounded-full bg-emerald-100 text-emerald-600">
+                <Check className="h-7 w-7 stroke-[3]" />
+              </div>
+              <h3 className="heading-2 font-display text-emerald-700">{t('Đã gửi thành công', 'Sent successfully')}</h3>
+              <p className="mt-2 text-sapphire-700">{t('Đội ngũ sự kiện VinPet đã nhận được yêu cầu và sẽ liên hệ với bạn trong vòng 24 giờ.', 'Our VinPet events team has received your request and will contact you within 24 hours.')}</p>
+              <button onClick={() => setDone(false)} className="btn-outline mt-6 text-xs">
+                {t('Gửi yêu cầu khác', 'Send another request')}
+              </button>
             </div>
           ) : (
             <div className="mt-8 space-y-4 rounded-3xl border border-sapphire-100 bg-white p-6 shadow-soft">
