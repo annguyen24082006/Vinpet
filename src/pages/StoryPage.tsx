@@ -5,7 +5,7 @@ import { useLang, type L } from '@/lib/i18n';
 const pillars = [
   {
     icon: Heart,
-    title: { vi: 'Yêu thương trọn vẹn', en: 'Love Without Limits' } as L,
+    title: { vi: '01. Yêu thương trọn vẹn', en: '01. Love Without Limits' } as L,
     text: {
       vi: 'Thú cưng là một phần của gia đình. Mỗi hành trình nghỉ dưỡng trở thành khoảng thời gian gắn kết, nơi không thành viên nào phải ở lại phía sau.',
       en: 'Pets are family. We transform every vacation into a meaningful bonding journey, ensuring that no member of the family is ever left behind.',
@@ -13,7 +13,7 @@ const pillars = [
   },
   {
     icon: Sparkles,
-    title: { vi: 'Chất lượng tạo dựng niềm tin', en: 'Trust Built on Quality' } as L,
+    title: { vi: '02. Chất lượng tạo dựng niềm tin', en: '02. Trust Built on Quality' } as L,
     text: {
       vi: 'Mọi dịch vụ cho thú cưng đều đạt chuẩn Vingroup: chỉn chu, an toàn và chuyên nghiệp trong từng trải nghiệm.',
       en: 'Every pet service reflects Vingroup’s commitment to quality, with thoughtful attention to detail, safety, and professionalism at every step of the experience.',
@@ -21,15 +21,15 @@ const pillars = [
   },
   {
     icon: Globe2,
-    title: { vi: 'Kết nối hành trình, mở rộng trải nghiệm', en: 'Connecting Journeys, Enriching Experiences' } as L,
+    title: { vi: '03. Kết nối hành trình, mở rộng trải nghiệm', en: '03. Connecting Journeys, Enriching Experiences' } as L,
     text: {
-      vi: 'VinPet mong muốn mang đến những lựa chọn thuận tiện hơn cho các gia đình có thú cưng.',
-      en: 'VinPet strives to make every journey more convenient for families travelling with pets.',
+      vi: 'VinPet mong muốn mang đến những lựa chọn thuận tiện hơn cho các gia đình có thú cưng trên mỗi hành trình hướng đến khả năng kết nối cùng hệ sinh thái.',
+      en: 'VinPet strives to make every journey more convenient for families travelling with pets, with a vision of greater connectivity across the ecosystem.',
     } as L,
   },
   {
     icon: Users,
-    title: { vi: 'Gắn kết cộng đồng yêu thú cưng', en: 'Bringing Pet-Loving Communities Together' } as L,
+    title: { vi: '04. Gắn kết cộng đồng yêu thú cưng', en: '04. Bringing Pet-Loving Communities Together' } as L,
     text: {
       vi: 'Không gian gặp gỡ những gia đình cùng đam mê, nơi Boss được tôn trọng như thành viên gia đình.',
       en: 'A welcoming space for like-minded families to connect, where every pet is cherished and respected as a member of the family.',
@@ -123,13 +123,22 @@ export function StoryPage({ navigate }: { navigate: (p: string) => void }) {
 
       {/* timeline */}
       <section className="section-pad bg-ivory">
-        <SectionHeading
-          eyebrow={t('HÀNH TRÌNH PHÁT TRIỂN', 'OUR JOURNEY')}
-          title={t(
-            <>Từng bước kiến tạo hành trình nghỉ dưỡng <span className="text-gold-gradient">thân thiện với thú cưng</span></>,
-            <>Building a More Pet-Friendly Holiday Experience, <span className="text-gold-gradient">One Step at a Time</span></>
-          )}
-        />
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="eyebrow mb-3 text-gold-600">{t('CỘT MỐC ĐÁNG NHỚ', 'MEMORABLE MILESTONES')}</p>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-sapphire-950 tracking-tight">
+            {t(
+              <>Hành trình <span className="text-gold-gradient">phát triển</span></>,
+              <>Our <span className="text-gold-gradient">Journey</span></>
+            )}
+          </h2>
+          <div className="gold-divider" />
+          <p className="mt-4 text-base sm:text-lg leading-relaxed text-sapphire-700">
+            {t(
+              'Từng bước kiến tạo hành trình nghỉ dưỡng thân thiện với thú cưng cùng chuẩn mực 5 sao Vingroup.',
+              'Building a five-star pet-friendly holiday experience, one milestone at a time.'
+            )}
+          </p>
+        </div>
         <div className="mx-auto mt-14 max-w-3xl">
           {timeline.map((item, i) => (
             <div key={item.year} className="relative flex gap-6 pb-10 last:pb-0">
