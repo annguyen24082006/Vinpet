@@ -12,7 +12,7 @@ const heroSlides = [
 
 const stats: { value: string; label: L }[] = [
   { value: '100%', label: { vi: 'Không gian vô trùng khử mùi', en: 'Sterilised, odour-free spaces' } },
-  { value: '24/7', label: { vi: 'Bác sĩ thú y túc trực', en: 'Vets on duty around the clock' } },
+  { value: '24/7', label: { vi: 'Bác sĩ thú y túc trực', en: '24/7 Veterinary Care' } },
   { value: '5★', label: { vi: 'Tiêu chuẩn vận hành Vingroup', en: 'Vingroup service standards' } },
 ];
 
@@ -37,8 +37,8 @@ const usps = [
     icon: Star,
     title: { vi: 'Tiêu chuẩn dịch vụ theo định hướng Vingroup', en: 'Service Standards Inspired by Vingroup' } as L,
     desc: {
-      vi: 'Kế thừa tinh thần dịch vụ chuyên nghiệp, chỉn chu và chú trọng trải nghiệm khách hàng, hướng đến không gian chăm sóc thú cưng chất lượng cao.',
-      en: 'Reflecting Vingroup’s commitment to professionalism, attention to detail, and customer experience, we strive to create a high-quality environment dedicated to exceptional pet care.',
+      vi: 'Kế thừa tinh thần dịch vụ chuyên nghiệp, chỉn chu và chú trọng trải nghiệm khách hàng.',
+      en: 'Reflecting Vingroup’s commitment to professionalism, attention to detail, and customer experience.',
     } as L,
   },
 ];
@@ -46,7 +46,7 @@ const usps = [
 const fourNos = [
   {
     icon: Ban,
-    title: { vi: 'Không kỳ thị thú cưng', en: 'No pet prejudice' } as L,
+    title: { vi: 'Không phân biệt, luôn chào đón', en: 'No pet prejudice' } as L,
     desc: {
       vi: 'Mọi thú cưng đều được chào đón bình đẳng, không phân biệt giống hay kích cỡ.',
       en: 'Every pet is welcome, whatever their breed or size.',
@@ -175,14 +175,14 @@ export function HomePage({ navigate }: { navigate: (path: string) => void }) {
             <p className="eyebrow mb-3 sm:mb-4 text-gold-300">by Vingroup · A Vinpearl brand</p>
             <h1 className="heading-1 font-medium text-ivory text-shadow-luxe">
               {t(
-                <>Kỳ nghỉ trọn vẹn cho cả <span className="text-gold-gradient">những đứa trẻ bốn chân</span></>,
+                <>Kỳ nghỉ trọn vẹn cho cả <span className="text-gold-gradient">những người bạn bốn chân</span></>,
                 <>A perfect getaway for your <span className="text-gold-gradient">four-legged family</span></>
               )}
             </h1>
             <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-sapphire-100">
               {t(
-                'VinPet mang đến trải nghiệm nghỉ dưỡng 5 sao cho gia đình đa thế hệ có mang theo thú cưng — nơi tình yêu thương được chào đón ở mọi điểm đến.',
-                'VinPet brings five-star holidays to multi-generational families travelling with their pets, so love is welcome at every destination.'
+                'VinPet mang đến trải nghiệm nghỉ dưỡng 5 sao cho gia đình đa thế hệ có mang theo thú cưng - nơi tình yêu thương được chào đón ở mọi điểm đến.',
+                'VinPet brings five-star holidays to multi-generational families travelling with their pets, where love is welcomed at every destination.'
               )}
             </p>
             <div className="mt-6 sm:mt-9 flex flex-wrap gap-3 sm:gap-4">
