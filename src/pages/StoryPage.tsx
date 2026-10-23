@@ -23,7 +23,7 @@ const pillars = [
     icon: Globe2,
     title: { vi: 'Kết nối hành trình, mở rộng trải nghiệm', en: 'Connecting Journeys, Enriching Experiences' } as L,
     text: {
-      vi: 'VinPet mong muốn mang đến những lựa chọn thuận tiện hơn cho các gia đình có thú cưng trên mỗi hành trình hướng đến khả năng kết nối cùng hệ sinh thái.',
+      vi: 'VinPet mong muốn mang đến những lựa chọn thuận tiện hơn cho các gia đình có thú cưng.',
       en: 'VinPet strives to make every journey more convenient for families travelling with pets, with a vision of greater connectivity across the ecosystem.',
     } as L,
   },
