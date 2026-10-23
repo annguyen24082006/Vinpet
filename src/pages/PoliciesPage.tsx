@@ -12,7 +12,6 @@ import {
   ChevronUp,
   Info,
   CheckCircle2,
-  Sparkles,
 } from 'lucide-react';
 import { useLang, type L } from '@/lib/i18n';
 
@@ -354,33 +353,6 @@ export function PoliciesPage() {
     }));
   };
 
-  const expandAll = () => {
-    setExpandedCards({
-      '01': true,
-      '02': true,
-      '03': true,
-      '04': true,
-      '05': true,
-      '06': true,
-      '07': true,
-      '08': true,
-    });
-  };
-
-  const collapseAll = () => {
-    setExpandedCards({
-      '01': false,
-      '02': false,
-      '03': false,
-      '04': false,
-      '05': false,
-      '06': false,
-      '07': false,
-      '08': false,
-    });
-  };
-
-  const isAllExpanded = Object.values(expandedCards).every(Boolean);
 
   return (
     <div className="pt-20">
@@ -414,42 +386,6 @@ export function PoliciesPage() {
       {/* Main Content Area */}
       <section className="section-pad bg-ivory">
         <div className="mx-auto max-w-7xl">
-          {/* Welcome Announcement Card */}
-          <div className="mb-10 rounded-3xl border border-gold-300/80 bg-gradient-to-r from-gold-50/80 via-white to-amber-50/70 p-6 sm:p-8 shadow-soft">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div className="space-y-2 max-w-3xl">
-                <div className="inline-flex items-center gap-2 rounded-full bg-gold-500/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-900 border border-gold-300">
-                  <Sparkles className="h-3.5 w-3.5 text-gold-600" />
-                  {t('TIÊU CHUẨN NGHỈ DƯỠNG 5 SAO VINPET', 'VINPET 5-STAR PET STANDARDS')}
-                </div>
-                <h3 className="font-display text-xl sm:text-2xl font-bold text-sapphire-950">
-                  {t(
-                    'Bộ quy chuẩn 8 điều khoản minh bạch & an toàn',
-                    '8 Comprehensive, Transparent & Safe Regulation Articles'
-                  )}
-                </h3>
-                <p className="text-sm leading-relaxed text-sapphire-700">
-                  {t(
-                    'Được thiết kế theo tiêu chuẩn quốc tế và tinh thần hiếu khách Vingroup, nhằm đảm bảo sự riêng tư, vệ sinh và an toàn tuyệt đối cho người và thú cưng.',
-                    'Designed to international standards and Vingroup’s hospitality culture, ensuring maximum privacy, hygiene, and complete safety.'
-                  )}
-                </p>
-              </div>
-
-              {/* Toggle all button */}
-              <div className="shrink-0 flex items-center gap-3">
-                <button
-                  type="button"
-                  onClick={isAllExpanded ? collapseAll : expandAll}
-                  className="btn-outline text-xs px-4 py-2.5 font-bold shadow-sm hover:border-gold-400 hover:bg-gold-50"
-                >
-                  {isAllExpanded
-                    ? t('Thu gọn tất cả', 'Collapse all')
-                    : t('Mở rộng tất cả', 'Expand all')}
-                </button>
-              </div>
-            </div>
-          </div>
 
           {/* 8 POLICY CARDS IN 4 COLUMNS X 2 ROWS GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
