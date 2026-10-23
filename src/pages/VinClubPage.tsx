@@ -17,7 +17,7 @@ const tiers = [
   {
     name: 'Silver',
     icon: Star,
-    fee: 1000000,
+    fee: 5000000,
     color: 'from-slate-400 to-slate-600',
     perks: [
       { vi: 'Tích điểm 3%', en: 'Earn 3% points' },
@@ -29,7 +29,7 @@ const tiers = [
   {
     name: 'Gold',
     icon: Crown,
-    fee: 3000000,
+    fee: 15000000,
     color: 'from-gold-400 to-gold-600',
     perks: [
       { vi: 'Tích điểm 5%', en: 'Earn 5% points' },
@@ -43,7 +43,7 @@ const tiers = [
   {
     name: 'Platinum',
     icon: Gem,
-    fee: 8000000,
+    fee: 25000000,
     color: 'from-sapphire-700 to-sapphire-950',
     perks: [
       { vi: 'Tích điểm 8%', en: 'Earn 8% points' },
