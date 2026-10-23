@@ -7,7 +7,7 @@ type Msg = { role: 'user'; text: string } | { role: 'bot'; text: L };
 const quickPrompts: L[] = [
   { vi: 'Cho tôi xem menu Pet Café', en: 'Show me the Pet Café menu' },
   { vi: 'Quy định tiêm phòng gồm những gì?', en: 'What are the vaccination rules?' },
-  { vi: 'So sánh phòng Hotel và Villa cho chó 15kg', en: 'Compare Hotel and Villa rooms for a 15 kg dog' },
+  { vi: 'Dịch vụ Day-care hoạt động thế nào?', en: 'How does the Day-care service work?' },
 ];
 
 // Each topic can be recognised in Vietnamese or English, whichever language the guest types in.
@@ -15,8 +15,8 @@ const knowledge: { q: RegExp[]; a: L }[] = [
   {
     q: [/menu|cafe|cà phê|f&b|đồ ăn|thức ăn/i, /menu|caf[eé]|f&b|food|drink|snack|treat/i],
     a: {
-      vi: 'Menu Pet Café bao gồm: Puppuccino (kem whipping không đường), "Paw-tato" bánh quy ngũ cốc hữu cơ, "Meow-chiato" sữa dừa cho mèo, "Bark-becue" gà nướng thái nhỏ, nước lọc tinh khiết, kẹo dẻo dưỡng lông. Menu người: cà phê specialty, trà trái cây, bánh ngọt và đồ ăn nhẹ.',
-      en: 'Here’s what’s on the Pet Café menu 🐾 For your pet: Puppuccino (sugar-free whipped cream), “Paw-tato” organic grain cookies, “Meow-chiato” coconut milk for cats, “Bark-becue” shredded grilled chicken, purified water and fur-nourishing gummy treats. For you: specialty coffee, fruit tea, pastries and light bites.',
+      vi: 'Menu Pet Café bao gồm: Puppuccino (sữa chuyên dụng cho thú cưng sục bọt mịn), "Paw-tato" bánh quy ngũ cốc hữu cơ, "Cat-Pudding" nước hầm xương gà đông thành pudding cho mèo, "Bark-becue" gà nướng thái nhỏ không gia vị. Menu người: cà phê specialty, trà trái cây, bánh ngọt tươi.',
+      en: 'Here’s what’s on the Pet Café menu 🐾 For your pet: Puppuccino (frothed pet milk), “Paw-tato” organic grain biscuits, “Cat-Pudding” chicken bone broth pudding for cats, and “Bark-becue” unseasoned grilled chicken bites. For you: specialty coffee, fruit tea, and fresh pastries.',
     },
   },
   {
@@ -36,8 +36,8 @@ const knowledge: { q: RegExp[]; a: L }[] = [
   {
     q: [/daycare|trông giữ|giữ thú|theo giờ/i, /day-?care|babysit|hourly|drop.?off/i],
     a: {
-      vi: 'Day-care: tính theo giờ (180k/giờ) hoặc trọn ngày (1.2tr/ngày). Khu vực trong nhà có điều hòa, nhân viên túc trực chơi cùng, camera 24/7. Bạn nhận mã PIN để xem trực tiếp webcam từ điện thoại. Đặt lịch tại trang Dịch vụ → Day-care.',
-      en: 'Day-care is charged by the hour (180,000 VND/hour) or for a full day (1.2M VND/day). It’s an air-conditioned indoor area where our team plays with your pet, with a 24/7 camera. You’ll get a PIN to watch the live webcam from your phone. Book on Services → Day-care.',
+      vi: 'Day-care: tính theo giờ (110.000đ/giờ) hoặc trọn ngày (999.000đ/ngày). Hạ tầng chuẩn resort với phòng máy lạnh 100%, bãi cỏ ngoài trời an toàn, livestream camera 24/7 qua app VinID/Vinpearl, chăm sóc chuyên nghiệp với bữa ăn nhẹ và dắt đi dạo 2 lần/ngày. Đặt lịch tại trang Dịch vụ → Day-care.',
+      en: 'Day-care is charged by the hour (110,000 VND/hour) or for a full day (999,000 VND/day). Resort-standard infrastructure with 100% air conditioning, a safe outdoor lawn, 24/7 live camera streaming via VinID/Vinpearl app, and professional care including light meals and two supervised walks daily. Book on Services → Day-care.',
     },
   },
   {
