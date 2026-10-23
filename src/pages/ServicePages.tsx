@@ -157,7 +157,17 @@ export function SpaPage() {
 
 export function DaycarePage() {
   const { t, money } = useLang();
-  const [form, setForm] = useState({ contact_name: '', contact_email: '', contact_phone: '', pet_name: '', pet_breed: '', slot_date: '', slot_start: '', slot_end: '' });
+  const [form, setForm] = useState({
+    contact_name: '',
+    contact_email: '',
+    contact_phone: '',
+    pet_name: '',
+    pet_breed: '',
+    slot_date: '',
+    pickup_date: '',
+    slot_start: '',
+    slot_end: '',
+  });
   const [pkg, setPkg] = useState<'hourly' | 'daily'>('hourly');
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState<{ pin: string } | null>(null);
@@ -166,8 +176,13 @@ export function DaycarePage() {
   const submit = async () => {
     setSubmitting(true);
     setError('');
-    if (!form.contact_name || !form.contact_phone || !form.pet_name || !form.slot_date) {
-      setError(t('Vui lòng điền đầy đủ thông tin bắt buộc.', 'Could you please fill in all the required fields?'));
+    if (!form.contact_name || !form.contact_phone || !form.pet_name || !form.slot_date || !form.pickup_date) {
+      setError(t('Vui lòng điền đầy đủ thông tin bắt buộc (bao gồm ngày gửi và ngày đón).', 'Could you please fill in all the required fields (including drop-off and pick-up dates)?'));
+      setSubmitting(false);
+      return;
+    }
+    if (form.pickup_date < form.slot_date) {
+      setError(t('Ngày đón không thể trước ngày gửi.', 'Pick-up date cannot be before drop-off date.'));
       setSubmitting(false);
       return;
     }
@@ -303,10 +318,35 @@ export function DaycarePage() {
                 <div><label className="label-luxe">{t('SĐT *', 'Phone *')}</label><input className="input-luxe" value={form.contact_phone} onChange={(e) => setForm({ ...form, contact_phone: e.target.value })} /></div>
                 <div><label className="label-luxe">Email</label><input className="input-luxe" value={form.contact_email} onChange={(e) => setForm({ ...form, contact_email: e.target.value })} /></div>
                 <div><label className="label-luxe">{t('Tên thú cưng *', 'Pet’s name *')}</label><input className="input-luxe" value={form.pet_name} onChange={(e) => setForm({ ...form, pet_name: e.target.value })} /></div>
-                <div><label className="label-luxe">{t('Giống loài', 'Breed')}</label><input className="input-luxe" value={form.pet_breed} onChange={(e) => setForm({ ...form, pet_breed: e.target.value })} /></div>
-                <div><label className="label-luxe">{t('Ngày *', 'Date *')}</label><input type="date" className="input-luxe" value={form.slot_date} onChange={(e) => setForm({ ...form, slot_date: e.target.value })} /></div>
-                <div><label className="label-luxe">{t('Giờ bắt đầu', 'Start time')}</label><input type="time" className="input-luxe" value={form.slot_start} onChange={(e) => setForm({ ...form, slot_start: e.target.value })} /></div>
-                <div><label className="label-luxe">{t('Giờ kết thúc', 'End time')}</label><input type="time" className="input-luxe" value={form.slot_end} onChange={(e) => setForm({ ...form, slot_end: e.target.value })} /></div>
+                <div className="sm:col-span-2"><label className="label-luxe">{t('Giống loài', 'Breed')}</label><input className="input-luxe" value={form.pet_breed} onChange={(e) => setForm({ ...form, pet_breed: e.target.value })} /></div>
+                <div>
+                  <label className="label-luxe">{t('Ngày gửi *', 'Drop-off date *')}</label>
+                  <input
+                    type="date"
+                    className="input-luxe"
+                    value={form.slot_date}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setForm((prev) => ({
+                        ...prev,
+                        slot_date: val,
+                        pickup_date: prev.pickup_date && prev.pickup_date < val ? val : (prev.pickup_date || val),
+                      }));
+                    }}
+                  />
+                </div>
+                <div>
+                  <label className="label-luxe">{t('Ngày đón *', 'Pick-up date *')}</label>
+                  <input
+                    type="date"
+                    min={form.slot_date}
+                    className="input-luxe"
+                    value={form.pickup_date}
+                    onChange={(e) => setForm({ ...form, pickup_date: e.target.value })}
+                  />
+                </div>
+                <div><label className="label-luxe">{t('Giờ bắt đầu (gửi)', 'Drop-off time')}</label><input type="time" className="input-luxe" value={form.slot_start} onChange={(e) => setForm({ ...form, slot_start: e.target.value })} /></div>
+                <div><label className="label-luxe">{t('Giờ kết thúc (đón)', 'Pick-up time')}</label><input type="time" className="input-luxe" value={form.slot_end} onChange={(e) => setForm({ ...form, slot_end: e.target.value })} /></div>
               </div>
               {error && <p className="text-sm text-rose-500">{error}</p>}
               <button onClick={submit} disabled={submitting} className="btn-sapphire w-full disabled:opacity-60">
