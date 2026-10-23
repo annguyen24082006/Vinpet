@@ -159,8 +159,8 @@ export function Footer({ navigate }: { navigate: (path: string) => void }) {
               <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
               <span>
                 {t(
-                  'Tầng 5, tòa Vincom Center, 72 Lê Thánh Tôn, Q.1, TP. HCM',
-                  '5th Floor, Vincom Center, 72 Le Thanh Ton Street, District 1, Ho Chi Minh City'
+                  'Số 7 Đường Bằng Lăng 1, Phường Việt Hưng, Quận Long Biên, Hà Nội',
+                  'No. 7, Bang Lang 1 Street, Viet Hung Ward, Long Bien District, Hanoi'
                 )}
               </span>
             </div>
