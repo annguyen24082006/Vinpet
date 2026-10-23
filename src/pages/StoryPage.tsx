@@ -5,61 +5,61 @@ import { useLang, type L } from '@/lib/i18n';
 const pillars = [
   {
     icon: Heart,
-    title: { vi: 'Tình yêu không để ai lại phía sau', en: 'Love that leaves no one behind' } as L,
+    title: { vi: 'Yêu thương trọn vẹn', en: 'Love Without Limits' } as L,
     text: {
-      vi: 'Không một chú chó hay mèo nào nên bị bỏ lại khi cả gia đình đi nghỉ dưỡng. VinPet nối dài tình yêu ấy.',
-      en: 'No dog or cat should be left at home when the whole family goes on holiday. VinPet carries that love with you.',
+      vi: 'Thú cưng là một phần của gia đình. Mỗi hành trình nghỉ dưỡng trở thành khoảng thời gian gắn kết, nơi không thành viên nào phải ở lại phía sau.',
+      en: 'Pets are family. We transform every vacation into a meaningful bonding journey, ensuring that no member of the family is ever left behind.',
     } as L,
   },
   {
     icon: Sparkles,
-    title: { vi: 'Chuẩn 5 sao, trọn vẹn niềm vui', en: 'Five-star care, full of joy' } as L,
+    title: { vi: 'Chất lượng tạo dựng niềm tin', en: 'Trust Built on Quality' } as L,
     text: {
-      vi: 'Mọi dịch vụ cho thú cưng đều đạt chuẩn Vingroup — vô trùng, an toàn, đội ngũ chuyên nghiệp.',
-      en: 'Every pet service meets Vingroup standards: sterilised, safe and delivered by a professional team.',
+      vi: 'Mọi dịch vụ cho thú cưng đều đạt chuẩn Vingroup: chỉn chu, an toàn và chuyên nghiệp trong từng trải nghiệm.',
+      en: 'Every pet service reflects Vingroup’s commitment to quality, with thoughtful attention to detail, safety, and professionalism at every step of the experience.',
     } as L,
   },
   {
     icon: Globe2,
-    title: { vi: 'Hệ sinh thái Vingroup', en: 'The Vingroup ecosystem' } as L,
+    title: { vi: 'Kết nối hành trình, mở rộng trải nghiệm', en: 'Connecting Journeys, Enriching Experiences' } as L,
     text: {
-      vi: 'VinPet hoạt động song hành cùng Vinpearl, VinWonders, Vinhomes — một hành trình liền mạch.',
-      en: 'VinPet works hand in hand with Vinpearl, VinWonders and Vinhomes for one smooth, seamless journey.',
+      vi: 'VinPet mong muốn mang đến những lựa chọn thuận tiện hơn cho các gia đình có thú cưng.',
+      en: 'VinPet strives to make every journey more convenient for families travelling with pets.',
     } as L,
   },
   {
     icon: Users,
-    title: { vi: 'Cộng đồng yêu thú cưng', en: 'A community of pet lovers' } as L,
+    title: { vi: 'Gắn kết cộng đồng yêu thú cưng', en: 'Bringing Pet-Loving Communities Together' } as L,
     text: {
       vi: 'Không gian gặp gỡ những gia đình cùng đam mê, nơi Boss được tôn trọng như thành viên gia đình.',
-      en: 'A place to meet families who share your passion, where every little Boss is treated as part of the family.',
+      en: 'A welcoming space for like-minded families to connect, where every pet is cherished and respected as a member of the family.',
     } as L,
   },
 ];
 
 const timeline = [
   {
-    year: '2024',
-    title: { vi: 'Khởi niệm VinPet', en: 'The idea of VinPet' } as L,
-    text: {
-      vi: 'Vingroup nhận thấy nhu cầu kỳ nghỉ pet-friendly ngày càng tăng tại Việt Nam.',
-      en: 'Vingroup noticed a growing wish among Vietnamese families for pet-friendly holidays.',
-    } as L,
-  },
-  {
     year: '2025',
-    title: { vi: 'Thí điểm 3 điểm đến', en: 'Pilot at 3 destinations' } as L,
+    title: { vi: 'Khởi nguồn ý tưởng', en: 'The Idea Takes Shape' } as L,
     text: {
-      vi: 'Phú Quốc, Nha Trang và Hội An — nơi đầu tiên áp dụng tiêu chuẩn VinPet.',
-      en: 'Phu Quoc, Nha Trang and Hoi An became the first places to adopt the VinPet standard.',
+      vi: 'Từ nhu cầu ngày càng được quan tâm về trải nghiệm nghỉ dưỡng cùng thú cưng, ý tưởng VinPet hướng đến việc mở rộng lựa chọn cho các gia đình yêu động vật.',
+      en: 'Inspired by the growing interest in holiday experiences with pets, the idea for VinPet emerged with a vision to offer more choices for families who love animals.',
     } as L,
   },
   {
     year: '2026',
-    title: { vi: 'Mở rộng hệ sinh thái', en: 'Growing the ecosystem' } as L,
+    title: { vi: 'Giai đoạn thí điểm', en: 'Pilot Phase' } as L,
     text: {
-      vi: 'Kế hoạch phủ 12 điểm đến Vinpearl với đầy đủ dịch vụ VinPet.',
-      en: 'The plan is to bring the full VinPet experience to 12 Vinpearl destinations.',
+      vi: 'Dự kiến triển khai mô hình tại Phú Quốc, Nha Trang và Hội An, từng bước hoàn thiện quy trình vận hành và trải nghiệm dịch vụ dành cho thú cưng.',
+      en: 'VinPet plans to pilot its model in Phu Quoc, Nha Trang, and Hoi An, gradually refining operational processes and developing a seamless service experience tailored to pets and their owners.',
+    } as L,
+  },
+  {
+    year: '2028',
+    title: { vi: 'Hướng tới mở rộng hệ sinh thái', en: 'Expanding the Ecosystem' } as L,
+    text: {
+      vi: 'Định hướng mở rộng dịch vụ tại các điểm đến nghỉ dưỡng, hướng đến trải nghiệm đồng bộ và thuận tiện hơn cho những gia đình đi du lịch cùng thú cưng.',
+      en: 'With a vision to expand its services across resort destinations, VinPet aims to create a more consistent and convenient experience for families travelling with their pets.',
     } as L,
   },
 ];
@@ -74,11 +74,11 @@ export function StoryPage({ navigate }: { navigate: (p: string) => void }) {
         <div className="absolute inset-0 bg-gradient-to-b from-sapphire-950/55 to-sapphire-950/90" />
         <div className="relative mx-auto flex h-full max-w-7xl items-center px-5 sm:px-8">
           <div className="max-w-2xl">
-            <p className="eyebrow text-gold-300">{t('Câu chuyện thương hiệu', 'Our Story')}</p>
+            <p className="eyebrow text-gold-300">{t('Câu chuyện về VinPet', 'The Story Behind VinPet')}</p>
             <h1 className="heading-1 mt-3 text-ivory">
               {t(
-                <>Kỳ nghỉ <span className="text-gold-gradient">trọn vẹn 100%</span> cho mọi thành viên</>,
-                <>A <span className="text-gold-gradient">100% complete</span> holiday for every family member</>
+                <>Trọn vẹn kỳ nghỉ, <span className="text-gold-gradient">đủ đầy yêu thương</span></>,
+                <>A Complete Getaway, <span className="text-gold-gradient">Filled with Love</span></>
               )}
             </h1>
           </div>
@@ -90,18 +90,24 @@ export function StoryPage({ navigate }: { navigate: (p: string) => void }) {
         <div className="mx-auto max-w-3xl text-center">
           <p className="font-display text-2xl italic leading-relaxed text-sapphire-800">
             {t(
-              '"Sứ mệnh của VinPet là mang lại kỳ nghỉ trọn vẹn 100% cho gia đình đa thế hệ có cả thú cưng của Vingroup — nơi tình yêu thương được chào đón ở mọi điểm đến."',
-              '“VinPet’s mission is to give every multi-generational Vingroup family, pets included, a 100% complete holiday, where love is welcome at every destination.”'
+              '"Mang đến những trải nghiệm nghỉ dưỡng thân thiện với thú cưng, để mỗi thành viên trong gia đình đều có thể đồng hành trên cùng một hành trình, cùng sẻ chia những khoảnh khắc đáng nhớ."',
+              '“To create pet-friendly holiday experiences where every member of the family can be part of the journey and share in life’s most memorable moments together.”'
             )}
           </p>
           <div className="gold-divider" />
-          <p className="text-sm uppercase tracking-[0.3em] text-gold-600">{t('Sứ mệnh VinPet', 'The VinPet mission')}</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-gold-600">{t('Sứ mệnh VinPet', 'VinPet’s Mission')}</p>
         </div>
       </section>
 
       {/* pillars */}
       <section className="section-pad bg-cream">
-        <SectionHeading eyebrow={t('Giá trị cốt lõi', 'Core values')} title={t(<>Bốn trụ cột của <span className="text-gold-gradient">VinPet</span></>, <>The four pillars of <span className="text-gold-gradient">VinPet</span></>)} />
+        <SectionHeading
+          eyebrow={t('GIÁ TRỊ CỐT LÕI', 'OUR CORE VALUES')}
+          title={t(
+            <>Bốn giá trị tạo nên <span className="text-gold-gradient">bản sắc VinPet</span></>,
+            <>The Four Values That <span className="text-gold-gradient">Define VinPet</span></>
+          )}
+        />
         <div className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map((p) => (
             <div key={p.title.vi} className="card-luxe p-7 text-center">
@@ -117,7 +123,13 @@ export function StoryPage({ navigate }: { navigate: (p: string) => void }) {
 
       {/* timeline */}
       <section className="section-pad bg-ivory">
-        <SectionHeading eyebrow={t('Hành trình', 'Our journey')} title={t(<>Dấu ấn <span className="text-gold-gradient">VinPet</span></>, <>VinPet <span className="text-gold-gradient">milestones</span></>)} />
+        <SectionHeading
+          eyebrow={t('HÀNH TRÌNH PHÁT TRIỂN', 'OUR JOURNEY')}
+          title={t(
+            <>Từng bước kiến tạo hành trình nghỉ dưỡng <span className="text-gold-gradient">thân thiện với thú cưng</span></>,
+            <>Building a More Pet-Friendly Holiday Experience, <span className="text-gold-gradient">One Step at a Time</span></>
+          )}
+        />
         <div className="mx-auto mt-14 max-w-3xl">
           {timeline.map((item, i) => (
             <div key={item.year} className="relative flex gap-6 pb-10 last:pb-0">
