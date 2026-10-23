@@ -17,17 +17,6 @@ export interface ServiceSummary {
 
 export const services: ServiceSummary[] = [
   {
-    slug: 'pet-stay',
-    title: 'Pet-friendly Stay',
-    short: {
-      vi: 'Lưu trú chuẩn 5 sao dành riêng cho gia đình mang theo thú cưng.',
-      en: 'Five-star stays made just for families travelling with their pets.',
-    },
-    image:
-      'https://images.pexels.com/photos/33154338/pexels-photo-33154338.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-    icon: 'BedDouble',
-  },
-  {
     slug: 'spa',
     title: 'Pet Spa & Grooming',
     short: {
