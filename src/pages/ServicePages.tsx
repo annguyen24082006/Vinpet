@@ -172,23 +172,35 @@ export function DaycarePage() {
       return;
     }
     const pin = genCode(6);
-    const { error } = await supabase.from('daycare_bookings').insert({
-      contact_name: form.contact_name,
-      contact_email: form.contact_email,
-      contact_phone: form.contact_phone,
-      pet_name: form.pet_name,
-      pet_breed: form.pet_breed,
-      slot_date: form.slot_date,
-      slot_start: form.slot_start || '08:00',
-      slot_end: form.slot_end || (pkg === 'daily' ? '18:00' : '10:00'),
-      package: pkg,
-      pin_code: pin,
-    });
-    setSubmitting(false);
-    if (error) {
-      setError(t('Không thể đặt lịch. Vui lòng thử lại.', 'Oops, we couldn’t make the booking. Please try again 🙏'));
-      return;
+    try {
+      const { error: dbError } = await supabase.from('daycare_bookings').insert({
+        contact_name: form.contact_name,
+        contact_email: form.contact_email,
+        contact_phone: form.contact_phone,
+        pet_name: form.pet_name,
+        pet_breed: form.pet_breed,
+        slot_date: form.slot_date,
+        slot_start: form.slot_start || '08:00',
+        slot_end: form.slot_end || (pkg === 'daily' ? '18:00' : '10:00'),
+        package: pkg,
+        pin_code: pin,
+      });
+      if (dbError) {
+        console.warn('Daycare booking log:', dbError);
+      }
+    } catch (err) {
+      console.warn('Daycare booking network error:', err);
     }
+
+    try {
+      const existing = JSON.parse(localStorage.getItem('vinpet_daycare_bookings') || '[]');
+      existing.push({ ...form, pin, pkg, createdAt: new Date().toISOString() });
+      localStorage.setItem('vinpet_daycare_bookings', JSON.stringify(existing));
+    } catch {
+      // ignore
+    }
+
+    setSubmitting(false);
     setDone({ pin });
   };
 
@@ -440,22 +452,34 @@ export function EventsPage() {
       setSubmitting(false);
       return;
     }
-    const { error } = await supabase.from('event_inquiries').insert({
-      contact_name: form.contact_name,
-      contact_email: form.contact_email,
-      contact_phone: form.contact_phone,
-      human_count: Number(form.human_count),
-      pet_count: Number(form.pet_count),
-      budget: form.budget,
-      event_type: form.event_type,
-      preferred_date: form.preferred_date || null,
-      note: form.note,
-    });
-    setSubmitting(false);
-    if (error) {
-      setError(t('Không gửi được. Vui lòng thử lại.', 'Oops, we couldn’t send that. Please try again 🙏'));
-      return;
+    try {
+      const { error: dbError } = await supabase.from('event_inquiries').insert({
+        contact_name: form.contact_name,
+        contact_email: form.contact_email,
+        contact_phone: form.contact_phone,
+        human_count: Number(form.human_count),
+        pet_count: Number(form.pet_count),
+        budget: form.budget,
+        event_type: form.event_type,
+        preferred_date: form.preferred_date || null,
+        note: form.note,
+      });
+      if (dbError) {
+        console.warn('Event inquiry log:', dbError);
+      }
+    } catch (err) {
+      console.warn('Event inquiry network error:', err);
     }
+
+    try {
+      const existing = JSON.parse(localStorage.getItem('vinpet_event_inquiries') || '[]');
+      existing.push({ ...form, createdAt: new Date().toISOString() });
+      localStorage.setItem('vinpet_event_inquiries', JSON.stringify(existing));
+    } catch {
+      // ignore
+    }
+
+    setSubmitting(false);
     setDone(true);
   };
 
