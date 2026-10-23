@@ -95,7 +95,7 @@ const vets = [
     image: '/src/assets/images/vet_dr_an_1792562583874.jpg',
     category: { vi: 'Bác sĩ Thú y', en: 'Veterinarian' } as L,
     creds: {
-      vi: 'Bác sĩ Thú y, Học viện Nông nghiệp Việt Nam · Phẫu thuật Thú y và Chẩn đoán Da liễu – chương trình đào tạo nâng cao giả định tại Bangkok Veterinary Specialist Centre · Clinical Excellence Recognition 2025',
+      vi: 'Bác sĩ Thú y, Học viện Nông nghiệp Việt Nam · Phẫu thuật Thú y và Chẩn đoán Da liễu – chương trình đào tạo nâng cao tại Bangkok Veterinary Specialist Centre · Clinical Excellence Recognition 2025',
       en: 'Doctor of Veterinary Medicine, Vietnam National University of Agriculture · Veterinary Surgery & Dermatological Diagnostics - Bangkok Veterinary Specialist Centre · Clinical Excellence Recognition 2025',
     } as L,
   },
