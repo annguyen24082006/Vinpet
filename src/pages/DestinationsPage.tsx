@@ -63,8 +63,21 @@ export function DestinationsPage() {
     <div className="pt-20">
       {/* Search Header */}
       <section className="relative overflow-hidden bg-sapphire-950 py-12 lg:py-16 text-ivory">
-        <div className="absolute inset-0 bg-sapphire-radial opacity-70" />
-        <div className="absolute inset-0 opacity-20 bg-grain mix-blend-overlay" />
+  {/* Background image */}
+  <img
+    src="https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1920"
+    alt="Vinpearl Pet-Friendly Resort"
+    className="absolute inset-0 h-full w-full object-cover object-center"
+  />
+
+  {/* Dark overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-sapphire-950/85 via-sapphire-950/90 to-sapphire-950" />
+
+  {/* Existing background effects */}
+  <div className="absolute inset-0 bg-sapphire-radial opacity-60" />
+  <div className="absolute inset-0 opacity-20 bg-grain mix-blend-overlay" />
+
+  {/* Phần code cũ bên dưới giữ nguyên */}
         
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
           <div className="text-center md:text-left">
