@@ -94,7 +94,7 @@ export function DestinationsPage() {
                 
                 <div className="flex flex-wrap items-baseline gap-3">
                   <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white drop-shadow-md">
-                    450.000đ <span className="text-2xl sm:text-3xl font-medium text-gold-300">/ con</span>
+                    450.000đ <span className="text-2xl sm:text-3xl font-medium text-gold-300">/ thú cưng</span>
                   </span>
                   <span className="rounded-xl border border-gold-400/50 bg-gold-500/20 px-3 py-1 font-display text-sm sm:text-base font-bold uppercase tracking-wider text-gold-300">
                     {t('ĐỒNG GIÁ TOÀN HỆ THỐNG', 'FLAT RATE ALL RESORTS')}
@@ -726,10 +726,10 @@ function BookingModal({ dest, onClose }: { dest: Destination; onClose: () => voi
                   <div>
                     <label className="flex items-center gap-2 text-sm font-bold text-sapphire-950">
                       <Heart className="h-4 w-4 text-rose-500 fill-rose-500" />
-                      {t('Số lượng thú cưng đi cùng', 'Number of accompanying pets')}
+                      {t('Số lượng thú cưng đi cùng', 'Number of pets')}
                     </label>
                     <p className="mt-0.5 text-xs text-sapphire-600">
-                      {t('Phụ phí đồng giá 450.000đ/con, giá tiền tự động nhân lên theo số lượng.', 'Flat 450,000 VND/pet, multiplied by pet quantity.')}
+                      {t('Phụ phí đồng giá 450.000đ/bé thú cưng, giá tiền tự động nhân lên theo số lượng.', 'Flat 450,000 VND/pet, multiplied by pet quantity.')}
                     </p>
                   </div>
 
@@ -852,7 +852,7 @@ function BookingModal({ dest, onClose }: { dest: Destination; onClose: () => voi
               <div className="mt-3 rounded-2xl border border-sapphire-100 bg-white p-4 sm:p-5">
                 <div className="flex items-center justify-between mb-3">
                   <p className="text-xs font-bold uppercase tracking-wider text-sapphire-800">
-                    {t('Thông tin thú cưng đồng hành', 'Accompanying Pet Details')} ({petCount} {t('bé', 'pet(s)')})
+                    {t('Thông tin thú cưng đồng hành', 'Pet Details')} ({petCount} {t('bé', 'pet(s)')})
                   </p>
                   <span className="rounded-full bg-gold-100 px-2.5 py-0.5 text-xs font-semibold text-amber-900">
                     {t('Phụ phí:', 'Surcharge:')} {money(totalPetFee)}
