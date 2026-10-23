@@ -10,18 +10,37 @@ export function Footer({ navigate }: { navigate: (path: string) => void }) {
 
   const subscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.includes('@')) {
+    const trimmed = email.trim();
+    if (!trimmed || !trimmed.includes('@') || !trimmed.includes('.')) {
       setStatus('err');
       return;
     }
-    const { error } = await supabase
-      .from('newsletter_subscribers')
-      .insert({ email });
-    if (error) {
-      if (error.code === '23505') setStatus('dup');
-      else setStatus('err');
-      return;
+    try {
+      const { error } = await supabase
+        .from('newsletter_subscribers')
+        .insert({ email: trimmed });
+      if (error && error.code === '23505') {
+        setStatus('dup');
+        setEmail('');
+        return;
+      }
+      if (error) {
+        console.warn('Newsletter subscribe log:', error);
+      }
+    } catch (err) {
+      console.warn('Newsletter network error:', err);
     }
+
+    try {
+      const subs = JSON.parse(localStorage.getItem('vinpet_subscribers') || '[]');
+      if (!subs.includes(trimmed)) {
+        subs.push(trimmed);
+        localStorage.setItem('vinpet_subscribers', JSON.stringify(subs));
+      }
+    } catch {
+      // ignore
+    }
+
     setStatus('ok');
     setEmail('');
   };
