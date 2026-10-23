@@ -5,15 +5,15 @@ import { useLang, type L } from '@/lib/i18n';
 const pillars = [
   {
     icon: Heart,
-    title: { vi: '01. Yêu thương trọn vẹn', en: '01. Love Without Limits' } as L,
+    title: { vi: 'Yêu thương trọn vẹn', en: 'Pure Love, Full Care' } as L,
     text: {
       vi: 'Thú cưng là một phần của gia đình. Mỗi hành trình nghỉ dưỡng trở thành khoảng thời gian gắn kết, nơi không thành viên nào phải ở lại phía sau.',
-      en: 'Pets are family. We transform every vacation into a meaningful bonding journey, ensuring that no member of the family is ever left behind.',
+      en: 'Pets are family. VinPet transforms every vacation into a meaningful bonding journey, ensuring that no member of the family is ever left behind.',
     } as L,
   },
   {
     icon: Sparkles,
-    title: { vi: '02. Chất lượng tạo dựng niềm tin', en: '02. Trust Built on Quality' } as L,
+    title: { vi: 'Chất lượng tạo dựng niềm tin', en: 'Trust Built on Quality' } as L,
     text: {
       vi: 'Mọi dịch vụ cho thú cưng đều đạt chuẩn Vingroup: chỉn chu, an toàn và chuyên nghiệp trong từng trải nghiệm.',
       en: 'Every pet service reflects Vingroup’s commitment to quality, with thoughtful attention to detail, safety, and professionalism at every step of the experience.',
@@ -21,15 +21,15 @@ const pillars = [
   },
   {
     icon: Globe2,
-    title: { vi: '03. Kết nối hành trình, mở rộng trải nghiệm', en: '03. Connecting Journeys, Enriching Experiences' } as L,
+    title: { vi: 'Kết nối hành trình, mở rộng trải nghiệm', en: '03. Connecting Journeys, Enriching Experiences' } as L,
     text: {
-      vi: 'VinPet mong muốn mang đến những lựa chọn thuận tiện hơn cho các gia đình có thú cưng trên mỗi hành trình hướng đến khả năng kết nối cùng hệ sinh thái.',
-      en: 'VinPet strives to make every journey more convenient for families travelling with pets, with a vision of greater connectivity across the ecosystem.',
+      vi: 'VinPet mong muốn mang đến những lựa chọn thuận tiện hơn cho các gia đình có thú cưng cùng hệ sinh thái của VinGroup.',
+      en: 'VinPet strives to make every journey more convenient for families travelling with pets through Vin's ecosystem.',
     } as L,
   },
   {
     icon: Users,
-    title: { vi: '04. Gắn kết cộng đồng yêu thú cưng', en: '04. Bringing Pet-Loving Communities Together' } as L,
+    title: { vi: 'Gắn kết cộng đồng yêu thú cưng', en: 'Bringing Pet-Loving Communities Together' } as L,
     text: {
       vi: 'Không gian gặp gỡ những gia đình cùng đam mê, nơi Boss được tôn trọng như thành viên gia đình.',
       en: 'A welcoming space for like-minded families to connect, where every pet is cherished and respected as a member of the family.',
