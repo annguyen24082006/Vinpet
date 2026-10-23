@@ -26,7 +26,7 @@ export function ServicesIndexPage({ navigate }: { navigate: (p: string) => void 
 
       <section className="section-pad bg-ivory">
         <SectionHeading
-          eyebrow={t('5 dịch vụ chủ đạo', '5 signature services')}
+          eyebrow={t('4 dịch vụ chủ đạo', '4 signature services')}
           title={t(<>Trải nghiệm <span className="text-gold-gradient">trọn gói</span></>, <>Complete care, <span className="text-gold-gradient">all in one place</span></>)}
           subtitle={t('Chọn một dịch vụ để xem chi tiết gói và đặt lịch ngay.', 'Pick a service to see the details and book your spot.')}
         />
