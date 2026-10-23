@@ -140,13 +140,13 @@ export function Footer({ navigate }: { navigate: (path: string) => void }) {
                 </button>
               </div>
               {status === 'ok' && (
-                <p className="mt-2 text-xs text-gold-300">
-                  {t('Cảm ơn bạn đã đăng ký!', 'Thank you for subscribing! 💛')}
+                <p className="mt-2 text-xs font-semibold text-emerald-400">
+                  {t('Đã gửi email thành công', 'Email sent successfully')}
                 </p>
               )}
               {status === 'dup' && (
-                <p className="mt-2 text-xs text-gold-300">
-                  {t('Email này đã đăng ký rồi.', 'This email is already on our list. Thank you!')}
+                <p className="mt-2 text-xs font-semibold text-gold-300">
+                  {t('Đã gửi email thành công (Email đã được ghi nhận trước đó)', 'Email sent successfully (Already subscribed)')}
                 </p>
               )}
               {status === 'err' && (
