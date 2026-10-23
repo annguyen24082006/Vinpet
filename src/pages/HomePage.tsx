@@ -136,7 +136,7 @@ export function HomePage({ navigate }: { navigate: (path: string) => void }) {
   return (
     <div>
       {/* HERO */}
-      <section className="relative h-[100vh] min-h-[640px] w-full overflow-hidden">
+      <section className="relative min-h-[100svh] w-full flex flex-col justify-between overflow-hidden pt-24 sm:pt-28">
         <div className="absolute inset-0">
           {heroSlides.map((src, i) => (
             <div
@@ -151,7 +151,7 @@ export function HomePage({ navigate }: { navigate: (path: string) => void }) {
               }}
             />
           ))}
-          <div className="absolute inset-0 bg-gradient-to-b from-sapphire-950/55 via-sapphire-950/35 to-sapphire-950/85" />
+          <div className="absolute inset-0 bg-gradient-to-b from-sapphire-950/60 via-sapphire-950/40 to-sapphire-950/90" />
           <div className="absolute inset-0 bg-grain opacity-10 mix-blend-overlay" />
         </div>
 
@@ -170,22 +170,22 @@ export function HomePage({ navigate }: { navigate: (path: string) => void }) {
           ))}
         </div>
 
-        <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-5 sm:px-8">
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-5 sm:px-8 py-6 sm:py-10">
           <div className="max-w-2xl">
-            <p className="eyebrow mb-4 text-gold-300">by Vingroup · A Vinpearl brand</p>
+            <p className="eyebrow mb-3 sm:mb-4 text-gold-300">by Vingroup · A Vinpearl brand</p>
             <h1 className="heading-1 font-medium text-ivory text-shadow-luxe">
               {t(
                 <>Kỳ nghỉ trọn vẹn cho cả <span className="text-gold-gradient">những đứa trẻ bốn chân</span></>,
                 <>A perfect getaway for your <span className="text-gold-gradient">four-legged family</span></>
               )}
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-sapphire-100">
+            <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-sapphire-100">
               {t(
                 'VinPet mang đến trải nghiệm nghỉ dưỡng 5 sao cho gia đình đa thế hệ có mang theo thú cưng — nơi tình yêu thương được chào đón ở mọi điểm đến.',
                 'VinPet brings five-star holidays to multi-generational families travelling with their pets, so love is welcome at every destination.'
               )}
             </p>
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-6 sm:mt-9 flex flex-wrap gap-3 sm:gap-4">
               <button onClick={() => navigate('/destinations')} className="btn-gold">
                 {t('Đặt kỳ nghỉ cùng thú cưng', 'Book a getaway with your pet')}
                 <ArrowRight className="h-4 w-4" />
@@ -198,12 +198,14 @@ export function HomePage({ navigate }: { navigate: (path: string) => void }) {
         </div>
 
         {/* stat strip */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 border-t border-sapphire-700/50 bg-sapphire-950/55 backdrop-blur">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-sapphire-700/50 sm:grid-cols-3 sm:divide-x sm:divide-y-0 px-5 sm:px-8">
+        <div className="relative z-10 w-full border-t border-sapphire-700/50 bg-sapphire-950/70 backdrop-blur-md">
+          <div className="mx-auto grid max-w-7xl grid-cols-3 divide-x divide-sapphire-700/50 px-2 py-3 sm:px-8 sm:py-5">
             {stats.map((s) => (
-              <div key={s.label.vi} className="py-5 text-center sm:px-4">
-                <p className="font-display text-3xl font-semibold text-gold-300">{s.value}</p>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-sapphire-200">{tr(s.label)}</p>
+              <div key={s.label.vi} className="px-1.5 py-1 text-center sm:px-4 sm:py-2">
+                <p className="font-display text-xl font-bold text-gold-300 sm:text-3xl">{s.value}</p>
+                <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-sapphire-200">
+                  {tr(s.label)}
+                </p>
               </div>
             ))}
           </div>
