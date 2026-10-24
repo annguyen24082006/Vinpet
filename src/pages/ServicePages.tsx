@@ -671,157 +671,16 @@ export function DaycarePage() {
     </div>
   );
 }
+         
+import { Check } from 'lucide-react';
+import { useLang } from '@/lib/i18n';
+import { SectionHeading } from '@/components/SectionHeading';
+
+// Import ảnh menu thiết kế của An từ thư mục assets
+import petCafeMenuImg from '@/assets/images/pet-cafe-menu.png';
 
 export function PetParkPage() {
   const { t, money } = useLang();
-
-  const humanMenu = [
-    {
-      name: 'LOTUS BIRD’S NEST',
-      price: '145.000đ',
-      desc: {
-        vi: 'Chè yến chưng táo đỏ và hạt sen, thanh tao, bổ dưỡng.',
-        en: 'Bird’s nest sweet soup steamed with red dates and lotus seeds, delicate and nourishing.',
-      },
-    },
-    {
-      name: 'WEST LAKE LOTUS TEA',
-      price: '85.000đ',
-      desc: {
-        vi: 'Trà sen Tây Hồ ủ ấm, hương sen dịu nhẹ và tinh tế.',
-        en: 'Warm-steeped West Lake lotus tea with a soft, refined lotus aroma.',
-      },
-    },
-    {
-      name: 'WARM HERBAL BLISS',
-      price: '75.000đ',
-      desc: {
-        vi: 'Trà táo đỏ, kỷ tử và quế, thơm ấm, dễ uống.',
-        en: 'Red date, goji berry and cinnamon tea, warm, fragrant and easy to drink.',
-      },
-    },
-    {
-      name: 'GOLDEN ORANGE COLD BREW',
-      price: '75.000đ',
-      desc: {
-        vi: 'Cà phê lạnh kết hợp cam vàng, thanh mát và sảng khoái.',
-        en: 'Cold brew coffee with golden orange, cool, refreshing and invigorating.',
-      },
-    },
-    {
-      name: 'ARTISAN LATTE',
-      price: '75.000đ',
-      desc: {
-        vi: 'Latte cà phê pha máy với lớp bọt sữa nghệ thuật.',
-        en: 'Machine-brewed coffee latte topped with artful milk foam.',
-      },
-    },
-    {
-      name: 'RUBY POMEGRANATE',
-      price: '85.000–90.000đ',
-      desc: {
-        vi: 'Nước ép lựu đỏ tươi, chua ngọt tự nhiên.',
-        en: 'Freshly pressed red pomegranate juice, naturally sweet and tart.',
-      },
-    },
-    {
-      name: 'FRENCH BUTTER CROISSANT',
-      price: '75.000đ',
-      desc: {
-        vi: 'Bánh croissant ngàn lớp, thơm bơ Pháp.',
-        en: 'Flaky, many-layered croissant with the aroma of French butter.',
-      },
-    },
-    {
-      name: 'SMOKED SALMON BAGEL',
-      price: '115.000đ',
-      desc: {
-        vi: 'Bagel kẹp cá hồi hun khói, béo nhẹ và đậm vị.',
-        en: 'Bagel filled with smoked salmon, lightly rich and full of flavor.',
-      },
-    },
-  ];
-
-  const pawMenu = {
-    dogs: [
-      {
-        name: 'PUPPUCCINO',
-        price: '75.000đ',
-        desc: {
-          vi: 'Sữa dê tươi đánh bọt, phủ vụn việt quất hoặc dâu tây sấy khô.',
-          en: 'Frothed fresh goat’s milk topped with freeze-dried blueberry or strawberry crumbs.',
-        },
-      },
-      {
-        name: 'TINY TUMMY',
-        price: '75.000đ',
-        desc: {
-          vi: 'Pate ức gà và bí đỏ mềm mịn, dễ tiêu hóa.',
-          en: 'Smooth chicken breast and pumpkin pâté, easy to digest.',
-        },
-      },
-      {
-        name: 'PAW STEAK',
-        price: '95.000đ',
-        desc: {
-          vi: 'Bò băm kết hợp collagen, giàu đạm.',
-          en: 'Minced beef with collagen, rich in protein.',
-        },
-      },
-      {
-        name: 'SILKY PAWS',
-        price: '110.000đ',
-        desc: {
-          vi: 'Cá hồi kết hợp thảo dược, bổ sung Omega-3.',
-          en: 'Salmon with herbs, a source of Omega-3.',
-        },
-      },
-    ],
-    cats: [
-      {
-        name: 'MEOWCCINO',
-        price: '75.000đ',
-        desc: {
-          vi: 'Sữa dê ấm phủ kem phô mai nhẹ và vụn cỏ mèo.',
-          en: 'Warm goat’s milk topped with light cream cheese and catnip crumbles.',
-        },
-      },
-      {
-        name: 'KITTY CLOUD',
-        price: '75.000đ',
-        desc: {
-          vi: 'Mousse gan gà và tôm tươi mềm mịn.',
-          en: 'Smooth chicken liver mousse with fresh shrimp.',
-        },
-      },
-      {
-        name: 'PURRFECTION',
-        price: '85.000đ',
-        desc: {
-          vi: 'Pate cá ngừ kết hợp cỏ mèo.',
-          en: 'Tuna pâté with catnip.',
-        },
-      },
-    ],
-    specials: [
-      {
-        name: 'PAW ELIXIR',
-        price: '75.000đ',
-        desc: {
-          vi: 'Nước hầm xương trong 12 giờ, dùng ấm, giúp bổ sung độ ẩm.',
-          en: 'Bone broth simmered for 12 hours, served warm for extra hydration.',
-        },
-      },
-      {
-        name: 'PAWTY CAKE',
-        price: '150.000đ',
-        desc: {
-          vi: 'Bánh sinh nhật mini nhân thịt gà hoặc bò, phủ kem khoai lang.',
-          en: 'Mini birthday cake with chicken or beef filling, topped with sweet potato frosting.',
-        },
-      },
-    ],
-  };
 
   const amenities = [
     { vi: 'Khu vận động Agility', en: 'Agility Play Zone' },
@@ -832,12 +691,19 @@ export function PetParkPage() {
 
   return (
     <div className="pt-20">
+      {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[360px] overflow-hidden">
-        <img src="https://images.pexels.com/photos/11512316/pexels-photo-11512316.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Pet Park" className="absolute inset-0 h-full w-full object-cover" />
+        <img
+          src="https://images.pexels.com/photos/11512316/pexels-photo-11512316.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="Pet Park"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-sapphire-950/50 to-sapphire-950/90" />
         <div className="relative mx-auto flex h-full max-w-7xl items-center px-5 sm:px-8">
           <div className="max-w-2xl">
-            <p className="eyebrow text-gold-300">{t('PET PARK & CAFÉ | SÂN CHƠI & CÀ PHÊ', 'PET PARK & CAFÉ | PLAY & RELAX')}</p>
+            <p className="eyebrow text-gold-300">
+              {t('PET PARK & CAFÉ | SÂN CHƠI & CÀ PHÊ', 'PET PARK & CAFÉ | PLAY & RELAX')}
+            </p>
             <h1 className="heading-1 mt-3 text-ivory">
               {t(
                 'Không gian vui chơi, những phút giây thư thái',
@@ -854,6 +720,7 @@ export function PetParkPage() {
         </div>
       </section>
 
+      {/* Amenities Section */}
       <section className="section-pad bg-ivory">
         <SectionHeading
           eyebrow={t('TIỆN ÍCH', 'AMENITIES')}
@@ -869,10 +736,10 @@ export function PetParkPage() {
         </div>
       </section>
 
-      {/* PET CAFÉ MENU: 2-COLUMN BRAND DESIGN MATCHING ATTACHMENT */}
+      {/* PET CAFÉ MENU SECTION: DISPLAY DESIGNED IMAGE */}
       <section className="section-pad bg-sapphire-950 text-ivory">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 text-center">
+          <div className="max-w-3xl mx-auto mb-10">
             <p className="eyebrow text-gold-400">VINPET · BY VINGROUP · A VINPEARL BRAND</p>
             <h2 className="heading-1 mt-2 text-white font-serif">
               {t(
@@ -888,134 +755,13 @@ export function PetParkPage() {
             </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2 items-start">
-            {/* COLUMN 1: HUMAN LOUNGE (Góc của sen) */}
-            <div className="rounded-3xl border border-gold-400/40 bg-white p-6 sm:p-8 text-sapphire-950 shadow-2xl">
-              <div className="border-b border-gold-200 pb-4">
-                <p className="text-[11px] font-bold tracking-[0.25em] uppercase text-gold-700">
-                  HUMAN LOUNGE
-                </p>
-                <h3 className="font-display text-3xl font-bold text-sapphire-950 mt-1">
-                  {t('Góc của sen', 'Human menu')}
-                </h3>
-                <p className="text-xs font-semibold tracking-wider text-sapphire-600 mt-1">
-                  {t('TRÀ · CHÈ · CÀ PHÊ · BÁNH', 'TEA · SWEET SOUP · COFFEE · PASTRIES')}
-                </p>
-              </div>
-
-              <div className="mt-6 space-y-5">
-                {humanMenu.map((item) => (
-                  <div key={item.name} className="border-b border-sapphire-100/70 pb-4 last:border-0 last:pb-0">
-                    <div className="flex items-baseline justify-between gap-3">
-                      <h4 className="font-display text-base font-bold uppercase tracking-wide text-sapphire-950">
-                        {item.name}
-                      </h4>
-                      <span className="shrink-0 font-display text-base font-extrabold text-gold-700">
-                        {item.price}
-                      </span>
-                    </div>
-                    <p className="mt-1 text-xs leading-relaxed text-sapphire-600">
-                      {t(item.desc.vi, item.desc.en)}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* COLUMN 2: PAW MENU (Góc của Boss) */}
-            <div className="rounded-3xl border border-gold-400/40 bg-sapphire-900/90 p-6 sm:p-8 text-white shadow-2xl backdrop-blur">
-              <div className="border-b border-gold-400/30 pb-4">
-                <p className="text-[11px] font-bold tracking-[0.25em] uppercase text-gold-400">
-                  PAW MENU
-                </p>
-                <h3 className="font-display text-3xl font-bold text-white mt-1">
-                  {t('Góc của Boss', 'Boss menu')}
-                </h3>
-                <p className="text-xs font-semibold tracking-wider text-gold-300 mt-1">
-                  {t('PET GOURMET & DRINKS', 'PET GOURMET & DRINKS')}
-                </p>
-              </div>
-
-              <div className="mt-6 space-y-6">
-                {/* DOG SELECTION */}
-                <div>
-                  <div className="inline-block border-b-2 border-gold-400/60 pb-1 mb-3">
-                    <span className="text-[11px] font-bold uppercase tracking-widest text-gold-300">
-                      {t('DOG SELECTION', 'DOG SELECTION')}
-                    </span>
-                  </div>
-                  <div className="space-y-4">
-                    {pawMenu.dogs.map((item) => (
-                      <div key={item.name} className="border-b border-sapphire-800/80 pb-3 last:border-0 last:pb-0">
-                        <div className="flex items-baseline justify-between gap-3">
-                          <h4 className="font-display text-sm sm:text-base font-bold uppercase tracking-wide text-white">
-                            {item.name}
-                          </h4>
-                          <span className="shrink-0 font-display text-base font-extrabold text-gold-400">
-                            {item.price}
-                          </span>
-                        </div>
-                        <p className="mt-0.5 text-xs leading-relaxed text-sapphire-200">
-                          {t(item.desc.vi, item.desc.en)}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* CAT SELECTION */}
-                <div className="pt-2">
-                  <div className="inline-block border-b-2 border-gold-400/60 pb-1 mb-3">
-                    <span className="text-[11px] font-bold uppercase tracking-widest text-gold-300">
-                      {t('CAT SELECTION', 'CAT SELECTION')}
-                    </span>
-                  </div>
-                  <div className="space-y-4">
-                    {pawMenu.cats.map((item) => (
-                      <div key={item.name} className="border-b border-sapphire-800/80 pb-3 last:border-0 last:pb-0">
-                        <div className="flex items-baseline justify-between gap-3">
-                          <h4 className="font-display text-sm sm:text-base font-bold uppercase tracking-wide text-white">
-                            {item.name}
-                          </h4>
-                          <span className="shrink-0 font-display text-base font-extrabold text-gold-400">
-                            {item.price}
-                          </span>
-                        </div>
-                        <p className="mt-0.5 text-xs leading-relaxed text-sapphire-200">
-                          {t(item.desc.vi, item.desc.en)}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* PAW SPECIALS */}
-                <div className="pt-2">
-                  <div className="inline-block border-b-2 border-gold-400/60 pb-1 mb-3">
-                    <span className="text-[11px] font-bold uppercase tracking-widest text-gold-300">
-                      {t('PAW SPECIALS', 'PAW SPECIALS')}
-                    </span>
-                  </div>
-                  <div className="space-y-4">
-                    {pawMenu.specials.map((item) => (
-                      <div key={item.name} className="border-b border-sapphire-800/80 pb-3 last:border-0 last:pb-0">
-                        <div className="flex items-baseline justify-between gap-3">
-                          <h4 className="font-display text-sm sm:text-base font-bold uppercase tracking-wide text-white">
-                            {item.name}
-                          </h4>
-                          <span className="shrink-0 font-display text-base font-extrabold text-gold-400">
-                            {item.price}
-                          </span>
-                        </div>
-                        <p className="mt-0.5 text-xs leading-relaxed text-sapphire-200">
-                          {t(item.desc.vi, item.desc.en)}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Hiển thị ảnh menu thiết kế thay cho code cũ */}
+          <div className="flex justify-center">
+            <img 
+              src={petCafeMenuImg} 
+              alt="VinPet Café Menu" 
+              className="w-full max-w-4xl rounded-3xl shadow-2xl border-2 border-gold-400/40 object-cover"
+            />
           </div>
         </div>
       </section>
