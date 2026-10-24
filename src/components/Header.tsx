@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { PawPrint, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { type Route } from '@/lib/router';
 import { useLang, type L } from '@/lib/i18n';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import brandLogo from '@/assets/images/logo_web.png';
 
 const navItems: { label: L; path: string; route: Route['name'] }[] = [
   { label: { vi: 'Trang chủ', en: 'Home' }, path: '/', route: 'home' },
@@ -36,9 +37,11 @@ export function Header({
           className="group flex items-center gap-2.5"
           aria-label={t('VinPet trang chủ', 'VinPet home')}
         >
-          <span className="relative grid h-11 w-11 place-items-center rounded-full bg-gold-sheen shadow-gold">
-            <PawPrint className="h-6 w-6 text-sapphire-950" />
-          </span>
+          <img 
+            src={brandLogo} 
+            alt="VinPet Logo" 
+            className="h-11 w-11 rounded-full object-cover border border-gold-400/50 shadow-gold"
+          />
           <span className="flex flex-col leading-none">
             <span className="font-display text-2xl font-bold tracking-wide text-sapphire-950">
               Vin<span className="text-gold-gradient">Pet</span>
