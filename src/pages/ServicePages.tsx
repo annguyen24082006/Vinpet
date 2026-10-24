@@ -676,13 +676,10 @@ export function DaycarePage() {
 import { Check } from 'lucide-react';
 import { useLang } from '@/lib/i18n';
 import { SectionHeading } from '@/components/SectionHeading';
-
-// 👉 Import chuẩn theo đúng vị trí file ảnh trên thư mục src/assets/images/ của An
 import petCafeMenuImg from '@/assets/images/pet-cafe-menu.png';
 
 export function PetParkPage() {
   const { t, money } = useLang();
-
   const amenities = [
     { vi: 'Khu vận động Agility', en: 'Agility Play Zone' },
     { vi: 'Thảm cỏ tự nhiên', en: 'Natural Grass Lawn' },
