@@ -19,6 +19,9 @@ import {
   Heart,
   X,
   Gift,
+  Calendar,
+  Stethoscope,
+  Clock,
 } from 'lucide-react';
 import { destinations, type Destination, type RoomInfo } from '@/lib/data';
 import { useLang, type L } from '@/lib/i18n';
@@ -62,22 +65,15 @@ export function DestinationsPage() {
   return (
     <div className="pt-20">
       {/* Search Header */}
-      <section className="relative overflow-hidden bg-sapphire-950 py-12 lg:py-16 text-ivory">
-  {/* Background image */}
-  <img
-    src="https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1920"
-    alt="Vinpearl Pet-Friendly Resort"
-    className="absolute inset-0 h-full w-full object-cover object-center"
-  />
-
-  {/* Dark overlay */}
-  <div className="absolute inset-0 bg-gradient-to-b from-sapphire-950/85 via-sapphire-950/90 to-sapphire-950" />
-
-  {/* Existing background effects */}
-  <div className="absolute inset-0 bg-sapphire-radial opacity-60" />
-  <div className="absolute inset-0 opacity-20 bg-grain mix-blend-overlay" />
-
-  {/* Phần code cũ bên dưới giữ nguyên */}
+      <section className="relative overflow-hidden bg-sapphire-950 py-14 lg:py-20 text-ivory">
+        <img
+          src="https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          alt="Vinpearl Pet-Friendly Resort"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-sapphire-950/85 via-sapphire-950/90 to-sapphire-950" />
+        <div className="absolute inset-0 bg-sapphire-radial opacity-60" />
+        <div className="absolute inset-0 opacity-20 bg-grain mix-blend-overlay" />
         
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
           <div className="text-center md:text-left">
@@ -107,7 +103,7 @@ export function DestinationsPage() {
                 
                 <div className="flex flex-wrap items-baseline gap-3">
                   <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white drop-shadow-md">
-                    450.000đ <span className="text-2xl sm:text-3xl font-medium text-gold-300">/ thú cưng</span>
+                    450.000đ <span className="text-2xl sm:text-3xl font-medium text-gold-300">/ con</span>
                   </span>
                   <span className="rounded-xl border border-gold-400/50 bg-gold-500/20 px-3 py-1 font-display text-sm sm:text-base font-bold uppercase tracking-wider text-gold-300">
                     {t('ĐỒNG GIÁ TOÀN HỆ THỐNG', 'FLAT RATE ALL RESORTS')}
@@ -361,6 +357,62 @@ export function DestinationsPage() {
         </div>
       </section>
 
+      {/* 24/7 Female Veterinary Care on Duty Banner */}
+      <section className="bg-gradient-to-b from-ivory to-cream py-12 border-t border-sapphire-100">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="overflow-hidden rounded-3xl border border-gold-400/80 bg-gradient-to-r from-sapphire-950 via-sapphire-900 to-slate-900 p-6 sm:p-8 text-white shadow-xl">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+              <div className="space-y-3 max-w-2xl">
+                <div className="inline-flex items-center gap-2 rounded-full border border-gold-400/40 bg-gold-400/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gold-300">
+                  <Stethoscope className="h-3.5 w-3.5" />
+                  {t('ĐỘI NGŨ Y TẾ THÚ Y TRỰC 24/7', '24/7 ON-CALL VETERINARY CARE')}
+                </div>
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
+                  {t(
+                    <>Đội ngũ <span className="text-gold-gradient">Bác sĩ Thú y Nữ</span> tận tâm &amp; giàu kinh nghiệm</>,
+                    <>Dedicated &amp; Highly Experienced <span className="text-gold-gradient">Female Veterinarians</span></>
+                  )}
+                </h3>
+                <p className="text-xs sm:text-sm text-sapphire-200 leading-relaxed">
+                  {t(
+                    'Tại mỗi điểm đến của VinPet, các Bác sĩ Thú y chuyên khoa luôn túc trực ngày đêm để kiểm tra sức khỏe ban đầu, theo dõi thể trạng và sẵn sàng can thiệp kịp thời cho thú cưng của bạn trong suốt kỳ nghỉ.',
+                    'At every VinPet destination, certified veterinarians are on duty 24/7 to provide initial health checkups, monitor wellness, and offer immediate medical support for your pet throughout your getaway.'
+                  )}
+                </p>
+                <div className="flex flex-wrap gap-4 pt-2 text-xs font-medium text-gold-200">
+                  <span className="flex items-center gap-1.5"><Check className="h-4 w-4 text-gold-400" /> {t('Khám sàng lọc khi check-in', 'Check-in health screening')}</span>
+                  <span className="flex items-center gap-1.5"><Check className="h-4 w-4 text-gold-400" /> {t('Phòng y tế vô trùng chuyên biệt', 'Sterile medical exam room')}</span>
+                  <span className="flex items-center gap-1.5"><Check className="h-4 w-4 text-gold-400" /> {t('Túc trực khẩn cấp 24/7', '24/7 emergency response')}</span>
+                </div>
+              </div>
+
+              {/* Photos of female veterinarians */}
+              <div className="flex items-center gap-4 shrink-0">
+                <div className="rounded-2xl border border-gold-400/40 bg-sapphire-900/80 p-3 text-center shadow-md">
+                  <img
+                    src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&w=400&q=80"
+                    alt="BS. CKI. Nguyễn Phương Thảo"
+                    className="h-28 w-28 rounded-xl object-cover object-top border border-gold-400/40"
+                  />
+                  <p className="mt-2 text-xs font-bold text-white">BS. CKI. Phương Thảo</p>
+                  <p className="text-[10px] text-gold-400 font-semibold">{t('Trưởng bộ phận Thú y', 'Head of Vet Care')}</p>
+                </div>
+
+                <div className="rounded-2xl border border-gold-400/40 bg-sapphire-900/80 p-3 text-center shadow-md">
+                  <img
+                    src="https://images.pexels.com/photos/6235122/pexels-photo-6235122.jpeg?auto=compress&cs=tinysrgb&w=400"
+                    alt="BS. Nguyễn Phương An"
+                    className="h-28 w-28 rounded-xl object-cover object-top border border-gold-400/40"
+                  />
+                  <p className="mt-2 text-xs font-bold text-white">BS. Phương An</p>
+                  <p className="text-[10px] text-gold-400 font-semibold">{t('Ngoại khoa & Da liễu', 'Surgery & Derm')}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Room Detail Preview Modal */}
       {previewRoom && (
         <div
@@ -471,9 +523,30 @@ export function DestinationsPage() {
 
 function BookingModal({ dest, onClose }: { dest: Destination; onClose: () => void }) {
   const { t, tr, money } = useLang();
+  const getTomorrowStr = () => {
+    const d = new Date();
+    d.setDate(d.getDate() + 1);
+    return d.toISOString().split('T')[0];
+  };
+  const getFutureStr = (days: number) => {
+    const d = new Date();
+    d.setDate(d.getDate() + days);
+    return d.toISOString().split('T')[0];
+  };
+  const calculateNights = (inDate: string, outDate: string) => {
+    if (!inDate || !outDate) return 1;
+    const d1 = new Date(inDate);
+    const d2 = new Date(outDate);
+    const diffTime = d2.getTime() - d1.getTime();
+    const diffDays = Math.round(diffTime / (1000 * 3600 * 24));
+    return diffDays > 0 ? diffDays : 1;
+  };
+
   const [step, setStep] = useState(0);
   const [roomIdx, setRoomIdx] = useState(0);
   const [petCount, setPetCount] = useState(1);
+  const [checkInDate, setCheckInDate] = useState(() => getTomorrowStr());
+  const [checkOutDate, setCheckOutDate] = useState(() => getFutureStr(3)); // 2 nights default
   const [includePetFee, setIncludePetFee] = useState(true);
   const [showRoomInfo, setShowRoomInfo] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<'qr' | 'card'>('qr');
@@ -495,13 +568,43 @@ function BookingModal({ dest, onClose }: { dest: Destination; onClose: () => voi
     cardCvv: '***',
   });
   const [submitting, setSubmitting] = useState(false);
-  const [done, setDone] = useState<{ code: string; totalAmount: number } | null>(null);
+  const [done, setDone] = useState<{
+    code: string;
+    totalAmount: number;
+    roomType: string;
+    petCount: number;
+    totalPetFee: number;
+    guestName: string;
+    checkInDate: string;
+    checkOutDate: string;
+    nights: number;
+    totalRoomPrice: number;
+  } | null>(null);
   const [error, setError] = useState('');
 
   const room = dest.rooms[roomIdx] || dest.rooms[0];
+  const nights = calculateNights(checkInDate, checkOutDate);
   const petSurchargePerPet = 450000;
-  const totalPetFee = includePetFee ? petCount * petSurchargePerPet : 0;
-  const grandTotal = room.pricePerNight + totalPetFee;
+  const totalRoomPrice = room.pricePerNight * nights;
+  const totalPetFee = includePetFee ? petCount * petSurchargePerPet * nights : 0;
+  const grandTotal = totalRoomPrice + totalPetFee;
+
+  const setDurationNights = (n: number) => {
+    const base = checkInDate ? new Date(checkInDate) : new Date();
+    base.setDate(base.getDate() + n);
+    setCheckOutDate(base.toISOString().split('T')[0]);
+  };
+
+  const handleCheckInChange = (newDate: string) => {
+    setCheckInDate(newDate);
+    const inD = new Date(newDate);
+    const outD = new Date(checkOutDate);
+    if (outD <= inD) {
+      const nextD = new Date(inD);
+      nextD.setDate(nextD.getDate() + 1);
+      setCheckOutDate(nextD.toISOString().split('T')[0]);
+    }
+  };
 
   const submit = async () => {
     setSubmitting(true);
@@ -519,13 +622,13 @@ function BookingModal({ dest, onClose }: { dest: Destination; onClose: () => voi
       destination: dest.name.vi,
       room_type: room.type,
       pet_package: includePetFee
-        ? `Phụ phí dành cho những người bạn 4 chân (${petCount} con: ${money(totalPetFee)})`
+        ? `Phụ phí dành cho những người bạn 4 chân (${petCount} bé × ${nights} đêm: ${money(totalPetFee)})`
         : 'Không chọn phụ phí thú cưng',
       pet_name: form.pet_name || 'Thú cưng',
       pet_breed: form.pet_breed || 'Không rõ',
       pet_weight_kg: form.pet_weight_kg ? Number(form.pet_weight_kg) : null,
       vaccination_note: form.vaccination_note,
-      special_note: form.special_note,
+      special_note: `Check-in: ${checkInDate}, Check-out: ${checkOutDate} (${nights} đêm). ${form.special_note}`,
       consent_confirmed: true,
       payment_method: paymentMethod === 'qr' ? 'VietQR Techcombank' : 'Thẻ thanh toán Card',
       confirmation_code: code,
@@ -536,7 +639,18 @@ function BookingModal({ dest, onClose }: { dest: Destination; onClose: () => voi
       console.warn('Booking log:', dbError);
     }
     // Proceed to success screen
-    setDone({ code, totalAmount: grandTotal });
+    setDone({
+      code,
+      totalAmount: grandTotal,
+      roomType: room.type,
+      petCount,
+      totalPetFee,
+      guestName: form.contact_name || 'Quý khách',
+      checkInDate,
+      checkOutDate,
+      nights,
+      totalRoomPrice,
+    });
   };
 
   const copyText = (text: string) => {
@@ -603,60 +717,169 @@ function BookingModal({ dest, onClose }: { dest: Destination; onClose: () => voi
 
         <div className="p-6">
           {done ? (
-            /* Success confirmation */
-            <div className="py-6 text-center">
-              <div className="mx-auto mb-4 grid h-16 w-16 place-items-center rounded-full bg-emerald-100 text-emerald-700">
+            /* Success confirmation with 'Xác nhận thông tin đặt phòng' */
+            <div className="py-4 text-center">
+              <div className="mx-auto mb-4 grid h-16 w-16 place-items-center rounded-full bg-emerald-100 text-emerald-700 shadow-sm">
                 <Check className="h-8 w-8 stroke-[3]" />
               </div>
-              <h3 className="heading-2 text-sapphire-950">
-                {t('Đặt phòng thành công!', 'Reservation Confirmed!')}
-              </h3>
-              <p className="mt-2 text-sm text-sapphire-600">
-                {t('Chúc quý khách và các bé cưng có một kỳ nghỉ thật tuyệt vời tại', 'We look forward to welcoming you and your furry friend to')}{' '}
-                <strong>{tr(dest.name)}</strong>
+              <h2 className="heading-1 font-display text-sapphire-950 text-2xl sm:text-3xl font-extrabold">
+                {t('Xác nhận thông tin đặt phòng', 'Booking Confirmation')}
+              </h2>
+              <p className="mt-1.5 text-sm text-gold-600 font-medium">
+                {t('Đặt phòng thành công! VinPet hân hạnh chào đón quý khách và các bé cưng.', 'Reservation confirmed! VinPet looks forward to welcoming you and your furry companions.')}
               </p>
 
-              <div className="mx-auto mt-6 max-w-sm rounded-2xl border-2 border-dashed border-gold-400 bg-gold-50/50 p-5">
-                <p className="text-xs uppercase tracking-wider text-sapphire-600">
-                  {t('Mã xác nhận đặt phòng của bạn', 'Your Booking Confirmation Code')}
-                </p>
-                <div className="mt-2 flex items-center justify-center gap-2">
-                  <span className="font-display text-3xl font-extrabold tracking-widest text-sapphire-950">
-                    {done.code}
+              {/* Booking Summary Box */}
+              <div className="mx-auto mt-6 max-w-lg rounded-2xl border-2 border-gold-400 bg-white p-5 text-left shadow-md">
+                <div className="flex items-center justify-between border-b border-sapphire-100 pb-3">
+                  <span className="text-xs uppercase tracking-wider text-sapphire-600 font-bold">
+                    {t('Mã đặt phòng', 'Confirmation Code')}
                   </span>
-                  <button
-                    onClick={() => copyText(done.code)}
-                    className="grid h-8 w-8 place-items-center rounded-lg bg-white border border-sapphire-200 text-sapphire-700 hover:bg-gold-100"
-                    title={t('Sao chép mã', 'Copy code')}
-                  >
-                    <Copy className="h-4 w-4" />
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <span className="font-display text-xl font-extrabold tracking-wider text-sapphire-950">
+                      {done.code}
+                    </span>
+                    <button
+                      onClick={() => copyText(done.code)}
+                      className="grid h-7 w-7 place-items-center rounded-lg bg-sapphire-50 border border-sapphire-200 text-sapphire-700 hover:bg-gold-100"
+                      title={t('Sao chép mã', 'Copy code')}
+                    >
+                      <Copy className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
                 </div>
                 {copiedCode && (
-                  <p className="mt-1 text-xs font-semibold text-emerald-600">
+                  <p className="mt-1 text-right text-xs font-semibold text-emerald-600">
                     {t('Đã sao chép mã đặt phòng!', 'Code copied to clipboard!')}
                   </p>
                 )}
-                <div className="mt-3 border-t border-gold-200/60 pt-3 text-xs text-sapphire-700">
-                  <span>{t('Tổng thanh toán:', 'Total paid:')} </span>
-                  <strong className="text-base text-sapphire-900">{money(done.totalAmount)}</strong>
+
+                <div className="mt-4 space-y-2.5 text-xs sm:text-sm text-sapphire-800">
+                  <div className="flex justify-between">
+                    <span className="text-sapphire-600">{t('Điểm đến:', 'Destination:')}</span>
+                    <strong className="text-right text-sapphire-950">{tr(dest.name)}</strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-sapphire-600">{t('Hạng phòng:', 'Room type:')}</span>
+                    <strong className="text-right text-sapphire-950">{done.roomType}</strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-sapphire-600">{t('Khách hàng:', 'Guest:')}</span>
+                    <strong className="text-right text-sapphire-950">{done.guestName}</strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-sapphire-600">{t('Thời gian lưu trú:', 'Stay duration:')}</span>
+                    <strong className="text-right text-sapphire-950">
+                      {done.checkInDate} → {done.checkOutDate} ({done.nights} {t('đêm', 'night(s)')})
+                    </strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-sapphire-600">{t('Tiền phòng:', 'Room total:')}</span>
+                    <span className="font-semibold text-sapphire-950">
+                      {money(done.totalRoomPrice)} ({money(room.pricePerNight)} × {done.nights} {t('đêm', 'nights')})
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-sapphire-600">{t('Số lượng thú cưng:', 'Number of pets:')}</span>
+                    <span className="font-semibold text-sapphire-950">{done.petCount} {t('bé', 'pet(s)')}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-sapphire-600">{t('Phụ phí dành cho những người bạn 4 chân:', 'Pet surcharge:')}</span>
+                    <span className="font-semibold text-gold-600">
+                      {money(done.totalPetFee)} ({money(450000)} × {done.petCount} bé × {done.nights} đêm)
+                    </span>
+                  </div>
+                  <div className="flex justify-between border-t border-sapphire-100 pt-3 text-base">
+                    <span className="font-bold text-sapphire-950">{t('Tổng thanh toán:', 'Total paid:')}</span>
+                    <strong className="font-display font-extrabold text-gold-600">{money(done.totalAmount)}</strong>
+                  </div>
                 </div>
               </div>
 
-              <div className="mt-6 rounded-xl bg-sapphire-50 p-4 text-xs text-sapphire-600">
+              <div className="mx-auto mt-5 max-w-lg rounded-xl bg-sapphire-50 p-3.5 text-xs text-sapphire-700">
                 {t(
-                  'Mã xác nhận và hướng dẫn check-in kèm theo đã được gửi đến số điện thoại và email của bạn.',
+                  'Chi tiết xác nhận và hướng dẫn check-in kèm theo đã được gửi đến số điện thoại và email của quý khách.',
                   'Confirmation details and pet check-in guidelines have been sent to your phone and email.'
                 )}
               </div>
 
-              <button onClick={onClose} className="btn-gold mt-6 w-full max-w-xs">
+              <button onClick={onClose} className="btn-gold mt-6 w-full max-w-xs shadow-md">
                 {t('Hoàn tất & Đóng', 'Complete & Close')}
               </button>
             </div>
           ) : step === 0 ? (
-            /* STEP 0: Select Room, Pet Count, and Surcharge */
+            /* STEP 0: Select Dates, Room, Pet Count, and Surcharge */
             <div className="space-y-6">
+              {/* STAY DATES PICKER & DURATION MULTIPLIER AS REQUESTED */}
+              <div className="rounded-2xl border-2 border-gold-300 bg-white p-4 sm:p-5 shadow-sm">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="h-4 w-4 text-gold-600" />
+                    <p className="label-luxe mb-0">{t('Thời gian lưu trú (Check-in & Check-out)', 'Stay Dates (Check-in & Check-out)')}</p>
+                  </div>
+                  <span className="rounded-full bg-gold-100 px-3 py-1 font-display text-xs font-bold text-amber-900 shadow-sm">
+                    {nights} {t('đêm', 'night(s)')} (x{nights})
+                  </span>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div>
+                    <label className="text-xs font-semibold text-sapphire-700 block mb-1">
+                      {t('Ngày nhận phòng (Check-in):', 'Check-in date:')}
+                    </label>
+                    <input
+                      type="date"
+                      min={new Date().toISOString().split('T')[0]}
+                      value={checkInDate}
+                      onChange={(e) => handleCheckInChange(e.target.value)}
+                      className="input-luxe text-sm font-medium"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs font-semibold text-sapphire-700 block mb-1">
+                      {t('Ngày trả phòng (Check-out):', 'Check-out date:')}
+                    </label>
+                    <input
+                      type="date"
+                      min={checkInDate}
+                      value={checkOutDate}
+                      onChange={(e) => setCheckOutDate(e.target.value)}
+                      className="input-luxe text-sm font-medium"
+                    />
+                  </div>
+                </div>
+
+                {/* Quick night duration buttons */}
+                <div className="mt-3.5 pt-3 border-t border-sapphire-100">
+                  <p className="text-[11px] font-semibold text-sapphire-600 mb-2">
+                    {t('Chọn nhanh số đêm lưu trú (giá phòng & phụ phí nhân theo ngày):', 'Quick duration select (pricing multiplies by days):')}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { n: 1, label: { vi: '1 đêm (x1)', en: '1 night (x1)' } },
+                      { n: 2, label: { vi: '2 đêm (x2)', en: '2 nights (x2)' } },
+                      { n: 3, label: { vi: '3 đêm (x3)', en: '3 nights (x3)' } },
+                      { n: 4, label: { vi: '4 đêm (x4)', en: '4 nights (x4)' } },
+                      { n: 5, label: { vi: '5 đêm (x5)', en: '5 nights (x5)' } },
+                      { n: 7, label: { vi: '1 tuần (x7)', en: '1 week (x7)' } },
+                    ].map((btn) => (
+                      <button
+                        key={btn.n}
+                        type="button"
+                        onClick={() => setDurationNights(btn.n)}
+                        className={`rounded-xl px-3 py-1.5 text-xs font-bold transition ${
+                          nights === btn.n
+                            ? 'bg-sapphire-900 text-gold-300 shadow-sm ring-2 ring-gold-400/50'
+                            : 'bg-sapphire-50 text-sapphire-700 hover:bg-gold-50 border border-sapphire-200'
+                        }`}
+                      >
+                        {tr(btn.label)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
               {/* Room selector */}
               <div>
                 <div className="flex items-center justify-between mb-2">
@@ -739,10 +962,10 @@ function BookingModal({ dest, onClose }: { dest: Destination; onClose: () => voi
                   <div>
                     <label className="flex items-center gap-2 text-sm font-bold text-sapphire-950">
                       <Heart className="h-4 w-4 text-rose-500 fill-rose-500" />
-                      {t('Số lượng thú cưng đi cùng', 'Number of pets')}
+                      {t('Số lượng thú cưng đi cùng', 'Number of accompanying pets')}
                     </label>
                     <p className="mt-0.5 text-xs text-sapphire-600">
-                      {t('Phụ phí đồng giá 450.000đ/bé thú cưng, giá tiền tự động nhân lên theo số lượng.', 'Flat 450,000 VND/pet, multiplied by pet quantity.')}
+                      {t('Phụ phí đồng giá 450.000đ/con, giá tiền tự động nhân lên theo số lượng.', 'Flat 450,000 VND/pet, multiplied by pet quantity.')}
                     </p>
                   </div>
 
@@ -791,7 +1014,7 @@ function BookingModal({ dest, onClose }: { dest: Destination; onClose: () => voi
                         </span>
                       </div>
                       <p className="mt-1 text-xs text-sapphire-600">
-                        {money(petSurchargePerPet)} × {petCount} {t('thú cưng', 'pets')} = {money(totalPetFee)}
+                        {money(petSurchargePerPet)} × {petCount} {t('thú cưng', 'pets')} × {nights} {t('đêm', 'night(s)')} = {money(totalPetFee)}
                       </p>
                       
                       {/* Complimentary inclusions list */}
@@ -813,15 +1036,25 @@ function BookingModal({ dest, onClose }: { dest: Destination; onClose: () => voi
               </div>
 
               {/* Total Calculation Strip */}
-              <div className="rounded-2xl border border-sapphire-100 bg-sapphire-950 p-4 text-ivory flex items-center justify-between">
+              <div className="rounded-2xl border border-sapphire-100 bg-sapphire-950 p-4 text-ivory flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
-                  <p className="text-xs text-sapphire-300">{t('Tạm tính phòng & phụ phí thú cưng:', 'Estimated room & pet fee:')}</p>
-                  <p className="font-display text-2xl font-bold text-gold-300">{money(grandTotal)}</p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-xs text-sapphire-300">{t('Tạm tính phòng & phụ phí thú cưng:', 'Estimated room & pet fee:')}</p>
+                    <span className="rounded-full bg-gold-400/20 px-2 py-0.5 text-[11px] font-bold text-gold-300">
+                      {nights} {t('đêm', 'night(s)')}
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-2 mt-0.5">
+                    <p className="font-display text-2xl font-bold text-gold-300">{money(grandTotal)}</p>
+                    <p className="text-[11px] text-sapphire-300">
+                      ({money(room.pricePerNight)} × {nights}đ + {money(totalPetFee)})
+                    </p>
+                  </div>
                 </div>
                 <button
                   type="button"
                   onClick={() => setStep(1)}
-                  className="btn-gold shadow-md flex items-center gap-2"
+                  className="btn-gold shadow-md flex items-center justify-center gap-2"
                 >
                   {t('Tiếp tục', 'Continue')} <ChevronRight className="h-4 w-4" />
                 </button>
@@ -865,7 +1098,7 @@ function BookingModal({ dest, onClose }: { dest: Destination; onClose: () => voi
               <div className="mt-3 rounded-2xl border border-sapphire-100 bg-white p-4 sm:p-5">
                 <div className="flex items-center justify-between mb-3">
                   <p className="text-xs font-bold uppercase tracking-wider text-sapphire-800">
-                    {t('Thông tin thú cưng đồng hành', 'Pet Details')} ({petCount} {t('bé', 'pet(s)')})
+                    {t('Thông tin thú cưng đồng hành', 'Accompanying Pet Details')} ({petCount} {t('bé', 'pet(s)')})
                   </p>
                   <span className="rounded-full bg-gold-100 px-2.5 py-0.5 text-xs font-semibold text-amber-900">
                     {t('Phụ phí:', 'Surcharge:')} {money(totalPetFee)}
@@ -975,14 +1208,21 @@ function BookingModal({ dest, onClose }: { dest: Destination; onClose: () => voi
 
                 <div className="mt-3 divide-y divide-sapphire-100/70 border-t border-sapphire-100 pt-3 text-xs">
                   <div className="flex justify-between py-1.5 text-sapphire-700">
-                    <span>{t('Giá phòng (1 đêm):', 'Room charge (1 night):')}</span>
-                    <span className="font-semibold text-sapphire-900">{money(room.pricePerNight)}</span>
+                    <span>{t('Thời gian lưu trú:', 'Stay duration:')}</span>
+                    <strong className="text-sapphire-900">
+                      {checkInDate} → {checkOutDate} ({nights} {t('đêm', 'night(s)')})
+                    </strong>
+                  </div>
+
+                  <div className="flex justify-between py-1.5 text-sapphire-700">
+                    <span>{t('Tiền phòng:', 'Room charge:')} ({money(room.pricePerNight)} × {nights} {t('đêm', 'nights')})</span>
+                    <span className="font-semibold text-sapphire-900">{money(totalRoomPrice)}</span>
                   </div>
 
                   {includePetFee && (
                     <div className="flex justify-between py-1.5 text-sapphire-700">
                       <span>
-                        {t('Phụ phí dành cho những người bạn 4 chân', 'Pet surcharge')} ({petCount} {t('con', 'pet(s)')}):
+                        {t('Phụ phí dành cho những người bạn 4 chân', 'Pet surcharge')} ({petCount} {t('bé', 'pet(s)')} × {nights} {t('đêm', 'nights')}):
                       </span>
                       <span className="font-semibold text-sapphire-900">{money(totalPetFee)}</span>
                     </div>
