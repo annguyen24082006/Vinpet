@@ -103,7 +103,7 @@ export function DestinationsPage() {
                 
                 <div className="flex flex-wrap items-baseline gap-3">
                   <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white drop-shadow-md">
-                    450.000đ <span className="text-2xl sm:text-3xl font-medium text-gold-300">/ con</span>
+                    450.000đ <span className="text-2xl sm:text-3xl font-medium text-gold-300">/ thú cưng</span>
                   </span>
                   <span className="rounded-xl border border-gold-400/50 bg-gold-500/20 px-3 py-1 font-display text-sm sm:text-base font-bold uppercase tracking-wider text-gold-300">
                     {t('ĐỒNG GIÁ TOÀN HỆ THỐNG', 'FLAT RATE ALL RESORTS')}
