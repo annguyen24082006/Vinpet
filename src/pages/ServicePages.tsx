@@ -672,11 +672,12 @@ export function DaycarePage() {
   );
 }
          
+
 import { Check } from 'lucide-react';
 import { useLang } from '@/lib/i18n';
 import { SectionHeading } from '@/components/SectionHeading';
 
-// Import ảnh menu thiết kế của An từ thư mục assets
+// 👉 Import chuẩn theo đúng vị trí file ảnh trên thư mục src/assets/images/ của An
 import petCafeMenuImg from '@/assets/images/pet-cafe-menu.png';
 
 export function PetParkPage() {
@@ -755,7 +756,7 @@ export function PetParkPage() {
             </p>
           </div>
 
-          {/* Hiển thị ảnh menu thiết kế thay cho code cũ */}
+          {/* Hiển thị ảnh menu thông qua biến đã import */}
           <div className="flex justify-center">
             <img 
               src={petCafeMenuImg} 
