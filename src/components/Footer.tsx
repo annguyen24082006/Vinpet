@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Mail, Phone, Facebook, Send, MapPin } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { useLang } from '@/lib/i18n';
-import brandLogo from '@/assets/images/logo-web.png';
+import brandLogo from '@/assets/images/logo_web.png';
 
 export function Footer({ navigate }: { navigate: (path: string) => void }) {
   const { t } = useLang();
@@ -54,7 +54,6 @@ export function Footer({ navigate }: { navigate: (path: string) => void }) {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5">
-              {/* Hiển thị logo nhận diện mới dạng hình tròn viền vàng sang trọng */}
               <img 
                 src={brandLogo} 
                 alt="VinPet Logo" 
@@ -190,4 +189,18 @@ export function Footer({ navigate }: { navigate: (path: string) => void }) {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-sapphire-800 pt-6 text-xs text-sapphire-4
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-sapphire-800 pt-6 text-xs text-sapphire-400 sm:flex-row">
+          <p>© 2026 VinPet — A Vingroup brand. All rights reserved.</p>
+          <div className="flex gap-5">
+            <a href="#" className="hover:text-gold-300">
+              {t('Chính sách bảo mật', 'Privacy Policy')}
+            </a>
+            <a href="#" className="hover:text-gold-300">
+              {t('Điều khoản sử dụng', 'Terms of Use')}
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
