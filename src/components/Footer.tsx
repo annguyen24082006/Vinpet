@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Mail, Phone, Facebook, Send, MapPin } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { useLang } from '@/lib/i18n';
-import brandLogo from '@/assets/images/logo_web.png';
+import brandLogo from '@/assets/images/logo-web.png';
 
 export function Footer({ navigate }: { navigate: (path: string) => void }) {
   const { t } = useLang();
