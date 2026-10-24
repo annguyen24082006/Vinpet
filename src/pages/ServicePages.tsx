@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Check, ChevronRight, ArrowRight } from 'lucide-react';
+import { Check, ChevronRight, ArrowRight, Sparkles, Info, X, Coffee, Utensils, Scissors, Bath, Heart, Clock } from 'lucide-react';
 import { SectionHeading } from '@/components/SectionHeading';
 import { useLang } from '@/lib/i18n';
 import { supabase, genCode } from '@/lib/supabase';
@@ -57,100 +57,412 @@ export function PetStayPage({ navigate }: { navigate: (p: string) => void }) {
   );
 }
 
+interface SpaServiceItem {
+  id: string;
+  code: string;
+  title: { vi: string; en: string };
+  desc: { vi: string; en: string };
+  duration: { vi: string; en: string };
+  img: string;
+  pricing: {
+    xs: number; // under 4kg
+    s: number;  // 4-7kg
+    m: number;  // 7-10kg
+    l: number;  // 10-15kg
+  };
+}
+
 export function SpaPage() {
   const { t, money } = useLang();
-  const spaPackages = [
+  const [selectedSize, setSelectedSize] = useState<'all' | 'xs' | 's' | 'm' | 'l' | 'xl'>('all');
+  const [detailModal, setDetailModal] = useState<SpaServiceItem | null>(null);
+
+  const spaPackages: SpaServiceItem[] = [
     {
-      name: t('Tắm trị liệu', 'Basic Pet Grooming'),
-      desc: t(
-        'Liệu trình làm sạch toàn diện kết hợp dưỡng ẩm da và lông, sấy khô, cắt móng, cùng vệ sinh tai và mắt chu đáo.',
-        'A thorough cleansing treatment featuring skin and coat moisturizing, blow-drying, nail trimming, and ear and eye cleaning.'
-      ),
-      duration: t('60 phút', '60 minutes'),
-      price: 400000,
+      id: 'therapeutic-bath',
+      code: '01',
+      title: { vi: 'Tắm trị liệu', en: 'Therapeutic Bath' },
+      desc: {
+        vi: 'Liệu trình làm sạch toàn diện kết hợp dưỡng ẩm da và lông, sấy khô, cắt móng, cùng vệ sinh tai và mắt chu đáo.',
+        en: 'A complete cleansing treatment with skin and coat moisturizing, blow-drying, nail trimming, plus careful ear and eye cleaning.',
+      },
+      duration: { vi: '60 phút', en: '60 minutes' },
       img: 'https://images.pexels.com/photos/19145895/pexels-photo-19145895.jpeg?auto=compress&cs=tinysrgb&w=800',
+      pricing: { xs: 350000, s: 420000, m: 500000, l: 580000 },
     },
     {
-      name: t('Cắt tỉa & tạo kiểu', 'Haircut & Styling'),
-      desc: t(
-        'Bao gồm trọn gói dịch vụ Vệ Sinh Cơ Bản, kết hợp tư vấn tạo kiểu riêng, cắt tỉa toàn thân phù hợp theo từng giống loài và tạo dáng tỉ mỉ bằng kéo chuyên dụng.',
-        'Includes everything in the Basic Grooming package, plus personalized style consultations, breed-appropriate body trimming, and precise scissoring.'
-      ),
-      duration: t('90 phút', '90 minutes'),
-      price: 550000,
+      id: 'trim-styling',
+      code: '02',
+      title: { vi: 'Cắt tỉa & tạo kiểu', en: 'Trim & Styling' },
+      desc: {
+        vi: 'Bao gồm trọn gói dịch vụ Vệ Sinh Cơ Bản, kết hợp tư vấn tạo kiểu riêng, cắt tỉa toàn thân phù hợp theo từng giống loài và tạo dáng tỉ mỉ bằng kéo chuyên dụng.',
+        en: 'Includes the full Basic Hygiene service, plus a personal styling consultation, a full-body trim suited to each breed, and meticulous shaping with professional scissors.',
+      },
+      duration: { vi: '90 phút', en: '90 minutes' },
       img: 'https://images.pexels.com/photos/6816841/pexels-photo-6816841.jpeg?auto=compress&cs=tinysrgb&w=800',
+      pricing: { xs: 550000, s: 650000, m: 780000, l: 900000 },
     },
     {
-      name: t('Dưỡng lông cao cấp', 'Premium Coat Conditioning'),
-      desc: t(
-        'Liệu trình chăm sóc chuyên sâu giúp nuôi dưỡng bộ lông mềm mượt với mặt nạ xả hữu cơ (organic), tinh dầu dưỡng chuyên dụng và tắm bồn thư giãn. (Giải pháp lý tưởng để gỡ rối và phục hồi độ bóng mượt cho lông).',
-        'An indulgent coat care treatment featuring an organic conditioning mask, specialized nourishing oils, and a relaxing bath. (Ideal for detangling and restoring shine).'
-      ),
-      duration: t('75 phút', '75 minutes'),
-      price: 550000,
+      id: 'premium-coat',
+      code: '03',
+      title: { vi: 'Dưỡng lông cao cấp', en: 'Premium Coat Care' },
+      desc: {
+        vi: 'Liệu trình chăm sóc chuyên sâu giúp nuôi dưỡng bộ lông mềm mượt với mặt nạ xả hữu cơ (organic), tinh dầu dưỡng chuyên dụng và tắm bồn thư giãn. Giải pháp lý tưởng để gỡ rối và phục hồi độ bóng mượt cho lông.',
+        en: 'An intensive treatment that nourishes the coat to silky softness with an organic conditioning mask, specialty nourishing oils and a relaxing soak. Ideal for detangling and restoring shine.',
+      },
+      duration: { vi: '75 phút', en: '75 minutes' },
       img: 'https://images.pexels.com/photos/19145897/pexels-photo-19145897.jpeg?auto=compress&cs=tinysrgb&w=800',
+      pricing: { xs: 480000, s: 580000, m: 680000, l: 800000 },
     },
     {
-      name: t('Vệ sinh tai & tuyến hôi', 'Ear Cleaning & Anal Gland Care'),
-      desc: t(
-        'Quy trình làm sạch tai nhẹ nhàng và vắt tuyến hôi giúp khử mùi triệt để, đi kèm bước kiểm tra tổng quát tình trạng da bên ngoài cho bé.',
-        'Gentle ear cleaning and anal gland expression to help manage odors, accompanied by a basic skin condition check.'
-      ),
-      duration: t('20 phút', '20 minutes'),
-      price: 150000,
+      id: 'ears-teeth',
+      code: '04',
+      title: { vi: 'Vệ sinh tai, tuyến hôi & đánh răng', en: 'Ears, Scent Glands & Teeth' },
+      desc: {
+        vi: 'Quy trình làm sạch tai nhẹ nhàng, vắt tuyến hôi giúp khử mùi triệt để và đánh răng giúp hơi thở thơm sạch, đi kèm bước kiểm tra tổng quát tình trạng da bên ngoài cho bé.',
+        en: "Gentle ear cleaning, scent gland expression for lasting odor control and teeth brushing for fresh breath, plus a general check of your pet's skin condition.",
+      },
+      duration: { vi: '30 phút', en: '30 minutes' },
       img: 'https://images.pexels.com/photos/19145879/pexels-photo-19145879.jpeg?auto=compress&cs=tinysrgb&w=800',
+      pricing: { xs: 200000, s: 220000, m: 250000, l: 280000 },
     },
   ];
 
+  const getDisplayPrice = (pkg: SpaServiceItem) => {
+    switch (selectedSize) {
+      case 'xs':
+        return money(pkg.pricing.xs);
+      case 's':
+        return money(pkg.pricing.s);
+      case 'm':
+        return money(pkg.pricing.m);
+      case 'l':
+        return money(pkg.pricing.l);
+      case 'xl':
+        return money(Math.round(pkg.pricing.l * 1.2));
+      default:
+        return `${money(pkg.pricing.xs)} - ${money(pkg.pricing.l)}`;
+    }
+  };
+
   return (
     <div className="pt-20">
-      <section className="relative h-[50vh] min-h-[360px] overflow-hidden">
-        <img src="https://images.pexels.com/photos/19145879/pexels-photo-19145879.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Spa" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-sapphire-950/50 to-sapphire-950/90" />
+      {/* Hero */}
+      <section className="relative h-[50vh] min-h-[380px] overflow-hidden">
+        <img
+          src="https://images.pexels.com/photos/19145879/pexels-photo-19145879.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="Spa"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-sapphire-950/60 to-sapphire-950/95" />
         <div className="relative mx-auto flex h-full max-w-7xl items-center px-5 sm:px-8">
           <div className="max-w-2xl">
-            <p className="eyebrow text-gold-300">{t('DỊCH VỤ VINPET', 'VINPET SERVICES')}</p>
+            <p className="eyebrow text-gold-300">
+              VINPET · BY VINGROUP · A VINPEARL BRAND
+            </p>
             <h1 className="heading-1 mt-3 text-ivory">
               {t(
-                <>Spa & Grooming - <span className="text-gold-gradient">Chăm sóc và làm đẹp chuyên nghiệp</span></>,
-                <>Spa & Grooming – <span className="text-gold-gradient">Professional Care & Styling</span></>
+                <>Gói <span className="text-gold-gradient">Spa &amp; Grooming</span></>,
+                <><span className="text-gold-gradient">Spa &amp; Grooming</span> Packages</>
               )}
             </h1>
             <p className="mt-4 max-w-lg text-sapphire-200">
               {t(
-                'Khám phá các liệu trình chăm sóc được thiết kế phù hợp với nhu cầu của từng thú cưng, từ vệ sinh cơ bản đến dưỡng lông chuyên sâu và tạo kiểu.',
-                'Discover thoughtfully tailored grooming treatments designed around your pet’s individual needs, from essential hygiene care to intensive coat conditioning and professional styling.'
+                'Chăm sóc chuyên nghiệp cho vẻ đẹp và sức khỏe của người bạn bốn chân. Bảng giá chi tiết theo từng kích cỡ cân nặng với mỹ phẩm hữu cơ cao cấp.',
+                'Professional care for the beauty and health of your four-legged friends. Detailed pricing tailored by pet weight sizes with organic wellness products.'
               )}
             </p>
           </div>
         </div>
       </section>
 
+      {/* Main Section */}
       <section className="section-pad bg-ivory">
-        <SectionHeading
-          eyebrow={t('Dịch vụ Spa & Grooming', 'Spa & Grooming Services')}
-          title={t(<>Gói <span className="text-gold-gradient">spa & grooming</span></>, <><span className="text-gold-gradient">Spa & grooming</span> packages</>)}
-          subtitle={t(
-            'Bảng giá áp dụng cho thú cưng dưới 15 kg. Thú cưng trên 15 kg áp dụng phụ thu 20%.',
-            'Pricing applies to pets weighing under 15 kg. A 20% surcharge applies to pets weighing over 15 kg.'
-          )}
-        />
-        <div className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-2">
-          {spaPackages.map((p) => (
-            <div key={p.name} className="card-luxe flex overflow-hidden">
-              <img src={p.img} alt={p.name} className="h-44 w-32 shrink-0 object-cover" />
-              <div className="flex flex-1 flex-col p-5">
-                <h3 className="font-display text-2xl font-semibold text-sapphire-900">{p.name}</h3>
-                <p className="mt-1 text-sm text-sapphire-600">{p.desc}</p>
-                <div className="mt-auto flex items-center justify-between pt-3">
-                  <span className="chip">{p.duration}</span>
-                  <span className="font-display text-2xl font-bold text-sapphire-900">{money(p.price)}</span>
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            eyebrow={t('BẢNG GIÁ DỊCH VỤ SPA & GROOMING', 'SPA & GROOMING SERVICE MENU')}
+            title={t(
+              <>Bảng giá <span className="text-gold-gradient">chia theo cân nặng thú cưng</span></>,
+              <>Service Pricing <span className="text-gold-gradient">by Pet Weight Tiers</span></>
+            )}
+            subtitle={t(
+              'Chọn kích cỡ để xem giá trực tiếp, hoặc ấn vào từng dịch vụ để xem bảng chi tiết từng mức cân.',
+              'Select a weight size to preview instant pricing, or click on any service to view the complete weight-tier breakdown.'
+            )}
+          />
+
+          {/* Weight Size Filter Tabs */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            {[
+              { id: 'all', label: t('Tất cả các size', 'All sizes'), sub: '' },
+              { id: 'xs', label: 'XS', sub: t('dưới 4 kg', 'under 4 kg') },
+              { id: 's', label: 'S', sub: '4 – 7 kg' },
+              { id: 'm', label: 'M', sub: '7 – 10 kg' },
+              { id: 'l', label: 'L', sub: '10 – 15 kg' },
+              { id: 'xl', label: '+20%', sub: t('trên 15 kg', 'over 15 kg') },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => setSelectedSize(tab.id as typeof selectedSize)}
+                className={`rounded-2xl px-4 py-2.5 text-xs sm:text-sm font-bold transition-all ${
+                  selectedSize === tab.id
+                    ? 'bg-sapphire-950 text-gold-300 shadow-md ring-2 ring-gold-400'
+                    : 'bg-white text-sapphire-800 border border-sapphire-200 hover:border-gold-400 hover:bg-gold-50/40'
+                }`}
+              >
+                <span className="font-extrabold">{tab.label}</span>
+                {tab.sub && <span className="ml-1.5 font-normal opacity-80 text-[11px]">({tab.sub})</span>}
+              </button>
+            ))}
+          </div>
+
+          {/* 4 Interactive Service Cards */}
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {spaPackages.map((p) => (
+              <div
+                key={p.id}
+                onClick={() => setDetailModal(p)}
+                className="group relative cursor-pointer overflow-hidden rounded-3xl border border-sapphire-200/90 bg-white p-6 shadow-soft transition-all duration-300 hover:border-gold-400 hover:shadow-xl hover:-translate-y-0.5"
+              >
+                <div className="flex flex-col sm:flex-row gap-5">
+                  <div className="relative h-44 sm:h-auto sm:w-44 shrink-0 overflow-hidden rounded-2xl bg-sapphire-100">
+                    <img
+                      src={p.img}
+                      alt={t(p.title.vi, p.title.en)}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <span className="absolute top-2 left-2 rounded-lg bg-sapphire-950/85 px-2 py-0.5 font-display text-sm font-bold text-gold-300 backdrop-blur">
+                      {p.code}
+                    </span>
+                  </div>
+
+                  <div className="flex flex-1 flex-col justify-between">
+                    <div>
+                      <div className="flex items-start justify-between gap-2">
+                        <h3 className="font-display text-xl font-bold text-sapphire-950 group-hover:text-gold-600 transition-colors">
+                          {t(p.title.vi, p.title.en)}
+                        </h3>
+                        <span className="shrink-0 inline-flex items-center gap-1 rounded-full bg-sapphire-50 px-2.5 py-0.5 text-[11px] font-semibold text-sapphire-700 border border-sapphire-200">
+                          <Clock className="h-3 w-3" />
+                          {t(p.duration.vi, p.duration.en)}
+                        </span>
+                      </div>
+
+                      <p className="mt-2 text-xs leading-relaxed text-sapphire-700 line-clamp-3">
+                        {t(p.desc.vi, p.desc.en)}
+                      </p>
+                    </div>
+
+                    <div className="mt-4 border-t border-sapphire-100 pt-3">
+                      <div className="flex items-baseline justify-between">
+                        <div>
+                          <span className="text-[11px] font-medium text-sapphire-500 block">
+                            {selectedSize === 'all'
+                              ? t('Mức giá theo cân nặng:', 'Price range by weight:')
+                              : t(`Giá áp dụng size ${selectedSize.toUpperCase()}:`, `Price for size ${selectedSize.toUpperCase()}:`)}
+                          </span>
+                          <span className="font-display text-xl font-black text-gold-600">
+                            {getDisplayPrice(p)}
+                          </span>
+                        </div>
+                        <button
+                          type="button"
+                          className="btn-outline !py-1.5 !px-3 text-xs flex items-center gap-1 font-bold text-sapphire-900 border-gold-400 group-hover:bg-gold-50"
+                        >
+                          <Info className="h-3.5 w-3.5 text-gold-600" />
+                          {t('Xem bảng giá chi tiết', 'View weight table')}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* MASTER PRICING TABLE (MATCHING THE ATTACHED POSTER) */}
+          <div className="mt-14 overflow-hidden rounded-3xl border border-gold-300 bg-white shadow-soft">
+            <div className="border-b border-sapphire-900 bg-sapphire-950 px-6 py-5 text-ivory flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div>
+                <p className="eyebrow text-gold-400">VINPET · BY VINGROUP · A VINPEARL BRAND</p>
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
+                  {t('Bảng giá Gói Spa & Grooming', 'Spa & Grooming Packages')}
+                </h3>
+                <p className="mt-0.5 text-xs text-sapphire-200">
+                  {t('Áp dụng cho chó và mèo mọi kích cỡ', 'Applicable to dogs and cats of all sizes')}
+                </p>
+              </div>
+              <span className="self-start sm:self-auto rounded-full bg-gold-400/20 border border-gold-400/40 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gold-300">
+                {t('Niêm yết minh bạch', 'Official Transparent Rates')}
+              </span>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm">
+                <thead>
+                  <tr className="border-b border-sapphire-100 bg-sapphire-900 text-ivory">
+                    <th className="px-6 py-4 font-display text-base font-bold text-gold-300">
+                      {t('Dịch vụ', 'Service')}
+                    </th>
+                    <th className="px-4 py-4 text-center">
+                      <div className="font-bold text-gold-300">XS</div>
+                      <div className="text-[11px] font-normal text-sapphire-200">{t('dưới 4 kg', 'under 4 kg')}</div>
+                    </th>
+                    <th className="px-4 py-4 text-center">
+                      <div className="font-bold text-gold-300">S</div>
+                      <div className="text-[11px] font-normal text-sapphire-200">4 – 7 kg</div>
+                    </th>
+                    <th className="px-4 py-4 text-center">
+                      <div className="font-bold text-gold-300">M</div>
+                      <div className="text-[11px] font-normal text-sapphire-200">7 – 10 kg</div>
+                    </th>
+                    <th className="px-4 py-4 text-center">
+                      <div className="font-bold text-gold-300">L</div>
+                      <div className="text-[11px] font-normal text-sapphire-200">10 – 15 kg</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-sapphire-100 text-sapphire-900">
+                  {spaPackages.map((pkg, idx) => (
+                    <tr
+                      key={pkg.id}
+                      className={idx % 2 === 0 ? 'bg-[#FAF7F2]' : 'bg-[#F2ECE3]'}
+                    >
+                      <td className="px-6 py-5">
+                        <div className="flex items-start gap-3">
+                          <span className="font-display text-xl font-black text-gold-600">
+                            {pkg.code}
+                          </span>
+                          <div>
+                            <p className="font-display text-base font-bold text-sapphire-950">
+                              {t(pkg.title.vi, pkg.title.en)}
+                            </p>
+                            <p className="mt-1 max-w-md text-xs leading-relaxed text-sapphire-700">
+                              {t(pkg.desc.vi, pkg.desc.en)}
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-4 py-5 text-center font-display text-base font-bold text-sapphire-950">
+                        {money(pkg.pricing.xs)}
+                      </td>
+                      <td className="px-4 py-5 text-center font-display text-base font-bold text-sapphire-950">
+                        {money(pkg.pricing.s)}
+                      </td>
+                      <td className="px-4 py-5 text-center font-display text-base font-bold text-sapphire-950">
+                        {money(pkg.pricing.m)}
+                      </td>
+                      <td className="px-4 py-5 text-center font-display text-base font-bold text-sapphire-950">
+                        {money(pkg.pricing.l)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* VERY PROMINENT SURCHARGE BANNER AS REQUESTED IN PDF */}
+            <div className="border-t-2 border-gold-400 bg-sapphire-950 p-6 sm:p-7 text-white">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-5">
+                <div className="flex h-16 w-28 shrink-0 items-center justify-center rounded-2xl bg-gold-400 text-sapphire-950 shadow-gold">
+                  <span className="font-display text-3xl font-extrabold tracking-tight">+20%</span>
+                </div>
+                <div className="space-y-1">
+                  <h4 className="font-display text-xl sm:text-2xl font-bold text-gold-300">
+                    {t('Thú cưng trên 15 kg', 'Pets over 15 kg')}
+                  </h4>
+                  <p className="text-sm sm:text-base text-sapphire-100 font-medium leading-relaxed">
+                    {t(
+                      'Bảng giá chuẩn áp dụng cho thú cưng dưới 15 kg. Thú cưng trên 15 kg áp dụng phụ thu 20% trên giá niêm yết của từng dịch vụ.',
+                      'Standard pricing applies to dogs and cats under 15 kg. A 20% surcharge applies to the listed price of each service for pets over 15 kg.'
+                    )}
+                  </p>
                 </div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </section>
+
+      {/* DETAIL MODAL FOR CLICKED SERVICE */}
+      {detailModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-sapphire-950/80 p-4 backdrop-blur-sm"
+          onClick={() => setDetailModal(null)}
+        >
+          <div
+            className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative h-44 overflow-hidden bg-sapphire-950">
+              <img
+                src={detailModal.img}
+                alt={t(detailModal.title.vi, detailModal.title.en)}
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-sapphire-950 via-sapphire-950/50 to-transparent" />
+              <button
+                onClick={() => setDetailModal(null)}
+                className="absolute top-4 right-4 grid h-8 w-8 place-items-center rounded-full bg-sapphire-950/70 text-white hover:bg-sapphire-900"
+              >
+                <X className="h-4 w-4" />
+              </button>
+              <div className="absolute bottom-4 left-5 right-5">
+                <span className="font-display text-sm font-black text-gold-300">
+                  DỊCH VỤ {detailModal.code}
+                </span>
+                <h3 className="font-display text-2xl font-bold text-white">
+                  {t(detailModal.title.vi, detailModal.title.en)}
+                </h3>
+              </div>
+            </div>
+
+            <div className="p-6">
+              <p className="text-xs sm:text-sm leading-relaxed text-sapphire-700">
+                {t(detailModal.desc.vi, detailModal.desc.en)}
+              </p>
+
+              <div className="mt-5 rounded-2xl border border-sapphire-200 overflow-hidden">
+                <div className="bg-sapphire-900 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-gold-300">
+                  {t('Bảng giá chi tiết theo từng mức cân:', 'Detailed Pricing by Weight Tier:')}
+                </div>
+                <div className="divide-y divide-sapphire-100 text-xs sm:text-sm">
+                  <div className="flex justify-between px-4 py-2.5 bg-amber-50/40">
+                    <span className="font-bold text-sapphire-900">XS (dưới 4 kg / under 4 kg)</span>
+                    <strong className="font-display font-extrabold text-sapphire-950">{money(detailModal.pricing.xs)}</strong>
+                  </div>
+                  <div className="flex justify-between px-4 py-2.5 bg-white">
+                    <span className="font-bold text-sapphire-900">S (4 – 7 kg)</span>
+                    <strong className="font-display font-extrabold text-sapphire-950">{money(detailModal.pricing.s)}</strong>
+                  </div>
+                  <div className="flex justify-between px-4 py-2.5 bg-amber-50/40">
+                    <span className="font-bold text-sapphire-900">M (7 – 10 kg)</span>
+                    <strong className="font-display font-extrabold text-sapphire-950">{money(detailModal.pricing.m)}</strong>
+                  </div>
+                  <div className="flex justify-between px-4 py-2.5 bg-white">
+                    <span className="font-bold text-sapphire-900">L (10 – 15 kg)</span>
+                    <strong className="font-display font-extrabold text-sapphire-950">{money(detailModal.pricing.l)}</strong>
+                  </div>
+                  <div className="flex justify-between px-4 py-3 bg-sapphire-950 text-gold-300 font-bold">
+                    <span>{t('Thú cưng trên 15 kg (+20% phụ thu)', 'Pets over 15 kg (+20% surcharge)')}</span>
+                    <strong className="font-display font-extrabold text-gold-400">
+                      {money(Math.round(detailModal.pricing.l * 1.2))}
+                    </strong>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setDetailModal(null)}
+                className="btn-gold mt-6 w-full shadow-md"
+              >
+                {t('Đã hiểu & Đóng', 'Close')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -362,41 +674,154 @@ export function DaycarePage() {
 
 export function PetParkPage() {
   const { t, money } = useLang();
-  const menu = [
+
+  const humanMenu = [
     {
-      section: t('Menu thú cưng', 'Pet Menu'),
-      items: [
-        {
-          name: 'Puppuccino',
-          desc: t('Sữa chuyên dụng cho thú cưng (Pet Milk) sục bọt mịn.', 'Frothed Pet Milk — Smooth, velvety foam made with specially formulated pet milk.'),
-          price: 65000,
-        },
-        {
-          name: 'Paw-tato',
-          desc: t('Bánh quy ngũ cốc hữu cơ', 'Organic Grain Biscuits — Wholesome biscuits made with organic grains for a delightful little treat.'),
-          price: 55000,
-        },
-        {
-          name: 'Cat-Pudding',
-          desc: t('Nước hầm xương gà đông thành pudding', 'Chicken Bone Broth Pudding — A savoury pudding made from chicken bone broth, gently set to create a soft, jelly-like texture for feline companions.'),
-          price: 60000,
-        },
-        {
-          name: 'Bark-becue',
-          desc: t('Gà nướng thái nhỏ, không gia vị', 'Grilled Chicken Bites — Tender pieces of grilled chicken, prepared without seasoning.'),
-          price: 95000,
-        },
-      ],
+      name: 'LOTUS BIRD’S NEST',
+      price: '145.000đ',
+      desc: {
+        vi: 'Chè yến chưng táo đỏ và hạt sen, thanh tao, bổ dưỡng.',
+        en: 'Bird’s nest sweet soup steamed with red dates and lotus seeds, delicate and nourishing.',
+      },
     },
     {
-      section: t('Menu người', 'Human Menu'),
-      items: [
-        { name: t('Cà phê specialty', 'Specialty coffee'), desc: t('Hạt Arabica Việt Nam rang vừa', 'Vietnamese Arabica beans, medium roast'), price: 55000 },
-        { name: t('Trà trái cây', 'Fruit tea'), desc: t('Trà hoa quả nhiệt đới', 'Refreshing tropical fruit tea'), price: 65000 },
-        { name: t('Bánh ngọt tươi', 'Fresh pastries'), desc: t('Croissant, muffin, bánh tiêu', 'Croissants, muffins and Vietnamese doughnuts'), price: 45000 },
-      ],
+      name: 'WEST LAKE LOTUS TEA',
+      price: '85.000đ',
+      desc: {
+        vi: 'Trà sen Tây Hồ ủ ấm, hương sen dịu nhẹ và tinh tế.',
+        en: 'Warm-steeped West Lake lotus tea with a soft, refined lotus aroma.',
+      },
+    },
+    {
+      name: 'WARM HERBAL BLISS',
+      price: '75.000đ',
+      desc: {
+        vi: 'Trà táo đỏ, kỷ tử và quế, thơm ấm, dễ uống.',
+        en: 'Red date, goji berry and cinnamon tea, warm, fragrant and easy to drink.',
+      },
+    },
+    {
+      name: 'GOLDEN ORANGE COLD BREW',
+      price: '75.000đ',
+      desc: {
+        vi: 'Cà phê lạnh kết hợp cam vàng, thanh mát và sảng khoái.',
+        en: 'Cold brew coffee with golden orange, cool, refreshing and invigorating.',
+      },
+    },
+    {
+      name: 'ARTISAN LATTE',
+      price: '75.000đ',
+      desc: {
+        vi: 'Latte cà phê pha máy với lớp bọt sữa nghệ thuật.',
+        en: 'Machine-brewed coffee latte topped with artful milk foam.',
+      },
+    },
+    {
+      name: 'RUBY POMEGRANATE',
+      price: '85.000–90.000đ',
+      desc: {
+        vi: 'Nước ép lựu đỏ tươi, chua ngọt tự nhiên.',
+        en: 'Freshly pressed red pomegranate juice, naturally sweet and tart.',
+      },
+    },
+    {
+      name: 'FRENCH BUTTER CROISSANT',
+      price: '75.000đ',
+      desc: {
+        vi: 'Bánh croissant ngàn lớp, thơm bơ Pháp.',
+        en: 'Flaky, many-layered croissant with the aroma of French butter.',
+      },
+    },
+    {
+      name: 'SMOKED SALMON BAGEL',
+      price: '115.000đ',
+      desc: {
+        vi: 'Bagel kẹp cá hồi hun khói, béo nhẹ và đậm vị.',
+        en: 'Bagel filled with smoked salmon, lightly rich and full of flavor.',
+      },
     },
   ];
+
+  const pawMenu = {
+    dogs: [
+      {
+        name: 'PUPPUCCINO',
+        price: '75.000đ',
+        desc: {
+          vi: 'Sữa dê tươi đánh bọt, phủ vụn việt quất hoặc dâu tây sấy khô.',
+          en: 'Frothed fresh goat’s milk topped with freeze-dried blueberry or strawberry crumbs.',
+        },
+      },
+      {
+        name: 'TINY TUMMY',
+        price: '75.000đ',
+        desc: {
+          vi: 'Pate ức gà và bí đỏ mềm mịn, dễ tiêu hóa.',
+          en: 'Smooth chicken breast and pumpkin pâté, easy to digest.',
+        },
+      },
+      {
+        name: 'PAW STEAK',
+        price: '95.000đ',
+        desc: {
+          vi: 'Bò băm kết hợp collagen, giàu đạm.',
+          en: 'Minced beef with collagen, rich in protein.',
+        },
+      },
+      {
+        name: 'SILKY PAWS',
+        price: '110.000đ',
+        desc: {
+          vi: 'Cá hồi kết hợp thảo dược, bổ sung Omega-3.',
+          en: 'Salmon with herbs, a source of Omega-3.',
+        },
+      },
+    ],
+    cats: [
+      {
+        name: 'MEOWCCINO',
+        price: '75.000đ',
+        desc: {
+          vi: 'Sữa dê ấm phủ kem phô mai nhẹ và vụn cỏ mèo.',
+          en: 'Warm goat’s milk topped with light cream cheese and catnip crumbles.',
+        },
+      },
+      {
+        name: 'KITTY CLOUD',
+        price: '75.000đ',
+        desc: {
+          vi: 'Mousse gan gà và tôm tươi mềm mịn.',
+          en: 'Smooth chicken liver mousse with fresh shrimp.',
+        },
+      },
+      {
+        name: 'PURRFECTION',
+        price: '85.000đ',
+        desc: {
+          vi: 'Pate cá ngừ kết hợp cỏ mèo.',
+          en: 'Tuna pâté with catnip.',
+        },
+      },
+    ],
+    specials: [
+      {
+        name: 'PAW ELIXIR',
+        price: '75.000đ',
+        desc: {
+          vi: 'Nước hầm xương trong 12 giờ, dùng ấm, giúp bổ sung độ ẩm.',
+          en: 'Bone broth simmered for 12 hours, served warm for extra hydration.',
+        },
+      },
+      {
+        name: 'PAWTY CAKE',
+        price: '150.000đ',
+        desc: {
+          vi: 'Bánh sinh nhật mini nhân thịt gà hoặc bò, phủ kem khoai lang.',
+          en: 'Mini birthday cake with chicken or beef filling, topped with sweet potato frosting.',
+        },
+      },
+    ],
+  };
 
   const amenities = [
     { vi: 'Khu vận động Agility', en: 'Agility Play Zone' },
@@ -444,33 +869,154 @@ export function PetParkPage() {
         </div>
       </section>
 
-      <section className="section-pad bg-cream">
-        <SectionHeading
-          eyebrow={t('PET CAFÉ MENU', 'PET CAFÉ MENU')}
-          title={t(<>Hương vị <span className="text-gold-gradient">dành cho mọi thành viên</span></>, <>A Taste <span className="text-gold-gradient">for Every Member of the Family</span></>)}
-          subtitle={t(
-            'Từ những món ăn nhẹ dành cho thú cưng đến cà phê và bánh ngọt dành cho chủ nuôi, mỗi lựa chọn góp phần làm nên những phút giây thư giãn trọn vẹn.',
-            'From delicious treats for your beloved pets to freshly brewed coffee and tempting pastries for their owners, every choice adds a little more pleasure to your moments of relaxation together.'
-          )}
-        />
-        <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2">
-          {menu.map((sec) => (
-            <div key={sec.section} className="rounded-3xl border border-sapphire-100 bg-white p-6 shadow-soft">
-              <h3 className="font-display text-2xl font-semibold text-sapphire-900">{sec.section}</h3>
-              <div className="my-4 h-px bg-sapphire-100" />
-              <div className="space-y-3">
-                {sec.items.map((it) => (
-                  <div key={it.name} className="flex items-start justify-between gap-3">
-                    <div>
-                      <p className="font-semibold text-sapphire-900">{it.name}</p>
-                      <p className="text-xs text-sapphire-500">{it.desc}</p>
+      {/* PET CAFÉ MENU: 2-COLUMN BRAND DESIGN MATCHING ATTACHMENT */}
+      <section className="section-pad bg-sapphire-950 text-ivory">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <p className="eyebrow text-gold-400">VINPET · BY VINGROUP · A VINPEARL BRAND</p>
+            <h2 className="heading-1 mt-2 text-white font-serif">
+              {t(
+                <>Menu <span className="text-gold-gradient">Pet Café</span></>,
+                <><span className="text-gold-gradient">Pet Café</span> Menu</>
+              )}
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-sapphire-200">
+              {t(
+                'Dành cho chủ nuôi và những người bạn bốn chân, mỗi lựa chọn góp thêm một khoảnh khắc thư giãn trọn vẹn.',
+                'For owners and their four-legged friends, every choice adds a moment of complete relaxation.'
+              )}
+            </p>
+          </div>
+
+          <div className="grid gap-8 lg:grid-cols-2 items-start">
+            {/* COLUMN 1: HUMAN LOUNGE (Góc của sen) */}
+            <div className="rounded-3xl border border-gold-400/40 bg-white p-6 sm:p-8 text-sapphire-950 shadow-2xl">
+              <div className="border-b border-gold-200 pb-4">
+                <p className="text-[11px] font-bold tracking-[0.25em] uppercase text-gold-700">
+                  HUMAN LOUNGE
+                </p>
+                <h3 className="font-display text-3xl font-bold text-sapphire-950 mt-1">
+                  {t('Góc của sen', 'Human menu')}
+                </h3>
+                <p className="text-xs font-semibold tracking-wider text-sapphire-600 mt-1">
+                  {t('TRÀ · CHÈ · CÀ PHÊ · BÁNH', 'TEA · SWEET SOUP · COFFEE · PASTRIES')}
+                </p>
+              </div>
+
+              <div className="mt-6 space-y-5">
+                {humanMenu.map((item) => (
+                  <div key={item.name} className="border-b border-sapphire-100/70 pb-4 last:border-0 last:pb-0">
+                    <div className="flex items-baseline justify-between gap-3">
+                      <h4 className="font-display text-base font-bold uppercase tracking-wide text-sapphire-950">
+                        {item.name}
+                      </h4>
+                      <span className="shrink-0 font-display text-base font-extrabold text-gold-700">
+                        {item.price}
+                      </span>
                     </div>
-                    <span className="shrink-0 font-display text-lg font-semibold text-gold-600">{money(it.price)}</span>
+                    <p className="mt-1 text-xs leading-relaxed text-sapphire-600">
+                      {t(item.desc.vi, item.desc.en)}
+                    </p>
                   </div>
                 ))}
               </div>
             </div>
-          ))}
+
+            {/* COLUMN 2: PAW MENU (Góc của Boss) */}
+            <div className="rounded-3xl border border-gold-400/40 bg-sapphire-900/90 p-6 sm:p-8 text-white shadow-2xl backdrop-blur">
+              <div className="border-b border-gold-400/30 pb-4">
+                <p className="text-[11px] font-bold tracking-[0.25em] uppercase text-gold-400">
+                  PAW MENU
+                </p>
+                <h3 className="font-display text-3xl font-bold text-white mt-1">
+                  {t('Góc của Boss', 'Boss menu')}
+                </h3>
+                <p className="text-xs font-semibold tracking-wider text-gold-300 mt-1">
+                  {t('PET GOURMET & DRINKS', 'PET GOURMET & DRINKS')}
+                </p>
+              </div>
+
+              <div className="mt-6 space-y-6">
+                {/* DOG SELECTION */}
+                <div>
+                  <div className="inline-block border-b-2 border-gold-400/60 pb-1 mb-3">
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-gold-300">
+                      {t('DOG SELECTION', 'DOG SELECTION')}
+                    </span>
+                  </div>
+                  <div className="space-y-4">
+                    {pawMenu.dogs.map((item) => (
+                      <div key={item.name} className="border-b border-sapphire-800/80 pb-3 last:border-0 last:pb-0">
+                        <div className="flex items-baseline justify-between gap-3">
+                          <h4 className="font-display text-sm sm:text-base font-bold uppercase tracking-wide text-white">
+                            {item.name}
+                          </h4>
+                          <span className="shrink-0 font-display text-base font-extrabold text-gold-400">
+                            {item.price}
+                          </span>
+                        </div>
+                        <p className="mt-0.5 text-xs leading-relaxed text-sapphire-200">
+                          {t(item.desc.vi, item.desc.en)}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* CAT SELECTION */}
+                <div className="pt-2">
+                  <div className="inline-block border-b-2 border-gold-400/60 pb-1 mb-3">
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-gold-300">
+                      {t('CAT SELECTION', 'CAT SELECTION')}
+                    </span>
+                  </div>
+                  <div className="space-y-4">
+                    {pawMenu.cats.map((item) => (
+                      <div key={item.name} className="border-b border-sapphire-800/80 pb-3 last:border-0 last:pb-0">
+                        <div className="flex items-baseline justify-between gap-3">
+                          <h4 className="font-display text-sm sm:text-base font-bold uppercase tracking-wide text-white">
+                            {item.name}
+                          </h4>
+                          <span className="shrink-0 font-display text-base font-extrabold text-gold-400">
+                            {item.price}
+                          </span>
+                        </div>
+                        <p className="mt-0.5 text-xs leading-relaxed text-sapphire-200">
+                          {t(item.desc.vi, item.desc.en)}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* PAW SPECIALS */}
+                <div className="pt-2">
+                  <div className="inline-block border-b-2 border-gold-400/60 pb-1 mb-3">
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-gold-300">
+                      {t('PAW SPECIALS', 'PAW SPECIALS')}
+                    </span>
+                  </div>
+                  <div className="space-y-4">
+                    {pawMenu.specials.map((item) => (
+                      <div key={item.name} className="border-b border-sapphire-800/80 pb-3 last:border-0 last:pb-0">
+                        <div className="flex items-baseline justify-between gap-3">
+                          <h4 className="font-display text-sm sm:text-base font-bold uppercase tracking-wide text-white">
+                            {item.name}
+                          </h4>
+                          <span className="shrink-0 font-display text-base font-extrabold text-gold-400">
+                            {item.price}
+                          </span>
+                        </div>
+                        <p className="mt-0.5 text-xs leading-relaxed text-sapphire-200">
+                          {t(item.desc.vi, item.desc.en)}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
