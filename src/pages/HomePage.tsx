@@ -12,7 +12,7 @@ const heroSlides = [
 
 const stats: { value: string; label: L }[] = [
   { value: '100%', label: { vi: 'Không gian vô trùng khử mùi', en: 'Sterilised, odour-free spaces' } },
-  { value: '24/7', label: { vi: 'Bác sĩ thú y túc trực', en: '24/7 Veterinary Care' } },
+  { value: '24/7', label: { vi: 'Bác sĩ thú y túc trực', en: 'Vets on duty around the clock' } },
   { value: '5★', label: { vi: 'Tiêu chuẩn vận hành Vingroup', en: 'Vingroup service standards' } },
 ];
 
@@ -37,8 +37,8 @@ const usps = [
     icon: Star,
     title: { vi: 'Tiêu chuẩn dịch vụ theo định hướng Vingroup', en: 'Service Standards Inspired by Vingroup' } as L,
     desc: {
-      vi: 'Kế thừa tinh thần dịch vụ chuyên nghiệp, chỉn chu và chú trọng trải nghiệm khách hàng.',
-      en: 'Reflecting Vingroup’s commitment to professionalism, attention to detail, and customer experience.',
+      vi: 'Kế thừa tinh thần dịch vụ chuyên nghiệp, chỉn chu và chú trọng trải nghiệm khách hàng, hướng đến không gian chăm sóc thú cưng chất lượng cao.',
+      en: 'Reflecting Vingroup’s commitment to professionalism, attention to detail, and customer experience, we strive to create a high-quality environment dedicated to exceptional pet care.',
     } as L,
   },
 ];
@@ -46,7 +46,7 @@ const usps = [
 const fourNos = [
   {
     icon: Ban,
-    title: { vi: 'Không phân biệt, luôn chào đón', en: 'No pet prejudice' } as L,
+    title: { vi: 'Không kỳ thị thú cưng', en: 'No pet prejudice' } as L,
     desc: {
       vi: 'Mọi thú cưng đều được chào đón bình đẳng, không phân biệt giống hay kích cỡ.',
       en: 'Every pet is welcome, whatever their breed or size.',
@@ -82,7 +82,7 @@ const vets = [
   {
     name: { vi: 'BS. CKI. Nguyễn Phương Thảo', en: 'Dr. Nguyễn Phương Thảo' } as L,
     role: { vi: 'Trưởng bộ phận Thú y', en: 'Head of Veterinary Services' } as L,
-    image: '/src/assets/images/vet_dr_thao_1792562583216.jpg',
+    image: 'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&w=800&q=80',
     category: { vi: 'Bác sĩ Thú y', en: 'Veterinarian' } as L,
     creds: {
       vi: 'Bác sĩ Thú y, Học viện Nông nghiệp Việt Nam; Chuyên khoa Hồi sức cấp cứu · 12 năm trong lĩnh vực thú y lâm sàng · Excellence in Veterinary Care Award 2025',
@@ -92,17 +92,17 @@ const vets = [
   {
     name: { vi: 'BS. Nguyễn Phương An', en: 'Dr. Nguyễn Phương An' } as L,
     role: { vi: 'Phụ trách Ngoại khoa & Da liễu', en: 'Head of Surgery & Dermatology' } as L,
-    image: '/src/assets/images/vet_dr_an_1792562583874.jpg',
+    image: 'https://images.pexels.com/photos/6235122/pexels-photo-6235122.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: { vi: 'Bác sĩ Thú y', en: 'Veterinarian' } as L,
     creds: {
-      vi: 'Bác sĩ Thú y, Học viện Nông nghiệp Việt Nam · Phẫu thuật Thú y và Chẩn đoán Da liễu – chương trình đào tạo nâng cao tại Bangkok Veterinary Specialist Centre · Clinical Excellence Recognition 2025',
+      vi: 'Bác sĩ Thú y, Học viện Nông nghiệp Việt Nam · Phẫu thuật Thú y và Chẩn đoán Da liễu – chương trình đào tạo nâng cao giả định tại Bangkok Veterinary Specialist Centre · Clinical Excellence Recognition 2025',
       en: 'Doctor of Veterinary Medicine, Vietnam National University of Agriculture · Veterinary Surgery & Dermatological Diagnostics - Bangkok Veterinary Specialist Centre · Clinical Excellence Recognition 2025',
     } as L,
   },
   {
     name: { vi: 'Trần Hoàng Phương Nhi', en: 'Trần Hoàng Phương Nhi' } as L,
     role: { vi: 'Trưởng bộ phận Grooming', en: 'Head of Grooming' } as L,
-    image: '/src/assets/images/groomer_nhi_1792562584269.jpg',
+    image: 'https://images.pexels.com/photos/6816869/pexels-photo-6816869.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: { vi: 'Master Groomer', en: 'Master Groomer' } as L,
     creds: {
       vi: 'Professional Pet Grooming Program (Fi Academy) · Master Groomer – Level A, Fi Grooming Academy · 9 năm trong lĩnh vực Grooming và tạo kiểu chuyên nghiệp · Grooming Excellence Award 2025',
@@ -112,7 +112,7 @@ const vets = [
   {
     name: { vi: 'Phan Khánh Vy', en: 'Phan Khánh Vy' } as L,
     role: { vi: 'Senior Groomer | Chuyên trách Show Grooming & Coat Care', en: 'Senior Groomer | Show Grooming & Coat Care Specialist' } as L,
-    image: '/src/assets/images/groomer_vy_1792562584033.jpg',
+    image: 'https://images.pexels.com/photos/6816858/pexels-photo-6816858.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: { vi: 'Senior Groomer', en: 'Senior Groomer' } as L,
     creds: {
       vi: 'Advanced Breed Styling & Coat Care · Advanced Show Grooming Certificate – Fi Grooming Academy · Creative Styling Award 2024',
@@ -122,7 +122,7 @@ const vets = [
   {
     name: { vi: 'Nguyễn Phương Anh', en: 'Nguyễn Phương Anh' } as L,
     role: { vi: 'Chuyên trách Spa & Low-Stress Handling', en: 'Pet Spa & Low-Stress Handling Specialist' } as L,
-    image: '/src/assets/images/groomer_anh_1792562585028.jpg',
+    image: 'https://images.pexels.com/photos/7470634/pexels-photo-7470634.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: { vi: 'Pet Spa Specialist', en: 'Pet Spa Specialist' } as L,
     creds: {
       vi: 'Pet Spa & Skin-Coat Care · Low-Stress Grooming Practices – Fi Grooming Academy · Compassionate Care Award 2025',
@@ -175,14 +175,14 @@ export function HomePage({ navigate }: { navigate: (path: string) => void }) {
             <p className="eyebrow mb-3 sm:mb-4 text-gold-300">by Vingroup · A Vinpearl brand</p>
             <h1 className="heading-1 font-medium text-ivory text-shadow-luxe">
               {t(
-                <>Kỳ nghỉ trọn vẹn cho cả <span className="text-gold-gradient">những người bạn bốn chân</span></>,
+                <>Kỳ nghỉ trọn vẹn cho cả <span className="text-gold-gradient">những đứa trẻ bốn chân</span></>,
                 <>A perfect getaway for your <span className="text-gold-gradient">four-legged family</span></>
               )}
             </h1>
             <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-sapphire-100">
               {t(
-                'VinPet mang đến trải nghiệm nghỉ dưỡng 5 sao cho gia đình đa thế hệ có mang theo thú cưng - nơi tình yêu thương được chào đón ở mọi điểm đến.',
-                'VinPet brings five-star holidays to multi-generational families travelling with their pets, where love is welcomed at every destination.'
+                'VinPet mang đến trải nghiệm nghỉ dưỡng 5 sao cho gia đình đa thế hệ có mang theo thú cưng — nơi tình yêu thương được chào đón ở mọi điểm đến.',
+                'VinPet brings five-star holidays to multi-generational families travelling with their pets, so love is welcome at every destination.'
               )}
             </p>
             <div className="mt-6 sm:mt-9 flex flex-wrap gap-3 sm:gap-4">
@@ -247,8 +247,8 @@ export function HomePage({ navigate }: { navigate: (path: string) => void }) {
             <>A Complete Experience, <span className="text-gold-gradient">Thoughtfully Tailored to Every Need</span></>
           )}
           subtitle={t(
-            'Khám phá 4 nhóm dịch vụ dành cho thú cưng từ vui chơi đến chăm sóc sắc đẹp và tổ chức sự kiện được thiết kế để mỗi trải nghiệm đều thoải mái, thú vị và đáng nhớ.',
-            'Explore our four categories of pet services playful experiences to grooming and special celebrations. Each is thoughtfully designed to make every moment comfortable, enjoyable, and memorable for you and your beloved companion.'
+            'Khám phá 5 nhóm dịch vụ dành cho thú cưng, từ lưu trú, vui chơi đến chăm sóc sắc đẹp và tổ chức sự kiện được thiết kế để mỗi trải nghiệm đều thoải mái, thú vị và đáng nhớ.',
+            'Explore our five categories of pet services, from comfortable stays and playful experiences to grooming and special celebrations. Each is thoughtfully designed to make every moment comfortable, enjoyable, and memorable for you and your beloved companion.'
           )}
         />
         <div className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
