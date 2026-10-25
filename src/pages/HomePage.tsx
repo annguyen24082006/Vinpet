@@ -4,6 +4,9 @@ import { Icon } from '@/components/Icon';
 import { services } from '@/lib/data';
 import { useLang, type L } from '@/lib/i18n';
 
+// 👉 Import ảnh chân dung giám đốc Grooming mới của An
+import nhiGroomingImage from '@/assets/images/nhi.png';
+
 const heroSlides = [
   'https://images.pexels.com/photos/3051551/pexels-photo-3051551.jpeg?auto=compress&cs=tinysrgb&w=1600',
   'https://images.pexels.com/photos/19145879/pexels-photo-19145879.jpeg?auto=compress&cs=tinysrgb&w=1600',
@@ -101,8 +104,8 @@ const vets = [
   },
   {
     name: { vi: 'Trần Hoàng Phương Nhi', en: 'Trần Hoàng Phương Nhi' } as L,
-    role: { vi: 'Trưởng bộ phận Grooming', en: 'Head of Grooming' } as L,
-    image: 'https://images.pexels.com/photos/6816869/pexels-photo-6816869.jpeg?auto=compress&cs=tinysrgb&w=800',
+    role: { vi: 'Giám đốc bộ phận Grooming', en: 'Director of Grooming' } as L,
+    image: nhiGroomingImage, // 👉 Đã trỏ tới ảnh mới của Nhi
     category: { vi: 'Master Groomer', en: 'Master Groomer' } as L,
     creds: {
       vi: 'Professional Pet Grooming Program (Fi Academy) · Master Groomer – Level A, Fi Grooming Academy · 9 năm trong lĩnh vực Grooming và tạo kiểu chuyên nghiệp · Grooming Excellence Award 2025',
