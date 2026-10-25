@@ -3,7 +3,11 @@ import { SectionHeading } from '@/components/SectionHeading';
 import { Icon } from '@/components/Icon';
 import { services } from '@/lib/data';
 import { useLang, type L } from '@/lib/i18n';
+import anImage from '@/assets/images/An.png';
+import anhImage from '@/assets/images/Anh.png';
+import thaoImage from '@/assets/images/Thao.png';
 import nhiGroomingImage from '@/assets/images/Nhi.png';
+import vyImage from '@/assets/images/Vy.png';
 
 const heroSlides = [
   'https://images.pexels.com/photos/3051551/pexels-photo-3051551.jpeg?auto=compress&cs=tinysrgb&w=1600',
@@ -81,53 +85,53 @@ const fourNos = [
 
 const vets = [
   {
-    name: { vi: 'BS. CKI. Nguyễn Phương Thảo', en: 'Dr. Nguyễn Phương Thảo' } as L,
-    role: { vi: 'Trưởng bộ phận Thú y', en: 'Head of Veterinary Services' } as L,
-    image: 'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&w=800&q=80',
-    category: { vi: 'Bác sĩ Thú y', en: 'Veterinarian' } as L,
+    name: { vi: 'BS. Nguyễn Phương An', en: 'Dr. Nguyễn Phương An' } as L,
+    role: { vi: 'Giám đốc Chẩn đoán & Ngoại khoa | Trưởng khoa Phẫu thuật & Da liễu', en: 'Director of Surgical & Dermatological Care' } as L,
+    image: anImage,
+    category: { vi: 'Giám đốc Chẩn đoán & Ngoại khoa', en: 'Director of Surgery' } as L,
     creds: {
-      vi: 'Bác sĩ Thú y, Học viện Nông nghiệp Việt Nam; Chuyên khoa Hồi sức cấp cứu · 12 năm trong lĩnh vực thú y lâm sàng · Excellence in Veterinary Care Award 2025',
-      en: 'Doctor of Veterinary Medicine, Vietnam National University of Agriculture · Emergency and Critical Care · 12 years of clinical veterinary practice · Excellence in Veterinary Care Award 2025',
+      vi: 'Bác sĩ Thú y, Học viện Nông nghiệp Việt Nam · Chứng chỉ Phẫu thuật Ngoại khoa & Chẩn đoán Da liễu Nâng cao (Bangkok Veterinary Specialist Centre) · Clinical Excellence Recognition 2025',
+      en: 'Doctor of Veterinary Medicine, Vietnam National University of Agriculture · Advanced Veterinary Surgery & Dermatological Diagnostics Certificate, Bangkok Veterinary Specialist Centre · Clinical Excellence Recognition 2025',
     } as L,
   },
   {
-    name: { vi: 'BS. Nguyễn Phương An', en: 'Dr. Nguyễn Phương An' } as L,
-    role: { vi: 'Phụ trách Ngoại khoa & Da liễu', en: 'Head of Surgery & Dermatology' } as L,
-    image: 'https://images.pexels.com/photos/6235122/pexels-photo-6235122.jpeg?auto=compress&cs=tinysrgb&w=800',
-    category: { vi: 'Bác sĩ Thú y', en: 'Veterinarian' } as L,
+    name: { vi: 'Phan Khánh Vy', en: 'Phan Khánh Vy' } as L,
+    role: { vi: 'Giám đốc Nghệ thuật & Tạo kiểu | Master Groomer Level A', en: 'Artistic Director & Head of Pet Grooming' } as L,
+    image: vyImage,
+    category: { vi: 'Master Groomer Level A', en: 'Master Groomer Level A' } as L,
     creds: {
-      vi: 'Bác sĩ Thú y, Học viện Nông nghiệp Việt Nam · Phẫu thuật Thú y và Chẩn đoán Da liễu – chương trình đào tạo nâng cao giả định tại Bangkok Veterinary Specialist Centre · Clinical Excellence Recognition 2025',
-      en: 'Doctor of Veterinary Medicine, Vietnam National University of Agriculture · Veterinary Surgery & Dermatological Diagnostics - Bangkok Veterinary Specialist Centre · Clinical Excellence Recognition 2025',
+      vi: 'Master Groomer – Level A, Fi Grooming Academy · Professional Pet Grooming Program · 9 năm định hình phong cách & giám sát tiêu chuẩn thẩm mỹ · Grooming Excellence Award 2025',
+      en: 'Master Groomer - Level A, Fi Grooming Academy · Professional Pet Grooming Program · 9 years of styling guidance & aesthetic supervision · Grooming Excellence Award 2025',
+    } as L,
+  },
+  {
+    name: { vi: 'BS. CKI. Nguyễn Phương Thảo', en: 'Dr. Nguyễn Phương Thảo' } as L,
+    role: { vi: 'Giám đốc Y khoa', en: 'Medical Director' } as L,
+    image: thaoImage,
+    category: { vi: 'Giám đốc Y khoa', en: 'Medical Director' } as L,
+    creds: {
+      vi: 'Bác sĩ Thú y, Học viện Nông nghiệp Việt Nam · Chuyên khoa I Hồi sức cấp cứu · 12 năm quản lý lâm sàng và chỉ đạo quy chuẩn y khoa · Excellence in Veterinary Care Award 2025',
+      en: 'Doctor of Veterinary Medicine, Vietnam National University of Agriculture · Emergency and Critical Care Specialist · 12 years of clinical management and medical protocol direction · Excellence in Veterinary Care Award 2025',
+    } as L,
+  },
+  {
+    name: { vi: 'Nguyễn Phương Anh', en: 'Nguyễn Phương Anh' } as L,
+    role: { vi: 'Giám đốc Trải nghiệm Spa & Trị liệu Tâm lý Thú cưng', en: 'Director of Pet Spa & Low-Stress Care' } as L,
+    image: anhImage,
+    category: { vi: 'Pet Spa Specialist', en: 'Pet Spa Specialist' } as L,
+    creds: {
+      vi: 'Chuyên gia Pet Spa & Skin-Coat Care · Low-Stress Grooming Practices (Fi Grooming Academy) · Best Pet Spa Specialist & Gentle Care Award 2025',
+      en: 'Pet Spa & Skin-Coat Care Specialist · Low-Stress Grooming Practices, Fi Grooming Academy · Best Pet Spa Specialist & Gentle Care Award 2025',
     } as L,
   },
   {
     name: { vi: 'Trần Hoàng Phương Nhi', en: 'Trần Hoàng Phương Nhi' } as L,
     role: { vi: 'Giám đốc bộ phận Grooming', en: 'Director of Grooming' } as L,
-    image: nhiGroomingImage, 
+    image: nhiGroomingImage,
     category: { vi: 'Master Groomer', en: 'Master Groomer' } as L,
     creds: {
       vi: 'Professional Pet Grooming Program (Fi Academy) · Master Groomer – Level A, Fi Grooming Academy · 9 năm trong lĩnh vực Grooming và tạo kiểu chuyên nghiệp · Grooming Excellence Award 2025',
       en: 'Professional Pet Grooming Program, Fi Academy · Master Groomer - Level A, Fi Grooming Academy · 9 years of professional pet grooming and styling · Grooming Excellence Award 2025',
-    } as L,
-  },
-  {
-    name: { vi: 'Phan Khánh Vy', en: 'Phan Khánh Vy' } as L,
-    role: { vi: 'Senior Groomer | Chuyên trách Show Grooming & Coat Care', en: 'Senior Groomer | Show Grooming & Coat Care Specialist' } as L,
-    image: 'https://images.pexels.com/photos/6816858/pexels-photo-6816858.jpeg?auto=compress&cs=tinysrgb&w=800',
-    category: { vi: 'Senior Groomer', en: 'Senior Groomer' } as L,
-    creds: {
-      vi: 'Advanced Breed Styling & Coat Care · Advanced Show Grooming Certificate – Fi Grooming Academy · Creative Styling Award 2024',
-      en: 'Advanced Breed Styling & Coat Care · Advanced Show Grooming Certificate, Fi Grooming Academy · Creative Styling Award 2024',
-    } as L,
-  },
-  {
-    name: { vi: 'Nguyễn Phương Anh', en: 'Nguyễn Phương Anh' } as L,
-    role: { vi: 'Chuyên trách Spa & Low-Stress Handling', en: 'Pet Spa & Low-Stress Handling Specialist' } as L,
-    image: 'https://images.pexels.com/photos/7470634/pexels-photo-7470634.jpeg?auto=compress&cs=tinysrgb&w=800',
-    category: { vi: 'Pet Spa Specialist', en: 'Pet Spa Specialist' } as L,
-    creds: {
-      vi: 'Pet Spa & Skin-Coat Care · Low-Stress Grooming Practices – Fi Grooming Academy · Compassionate Care Award 2025',
-      en: 'Pet Spa & Skin and Coat Care · Low-Stress Grooming Practices, Fi Grooming Academy · Compassionate Care Award 2025',
     } as L,
   },
 ];
