@@ -5,7 +5,7 @@ import { services } from '@/lib/data';
 import { useLang, type L } from '@/lib/i18n';
 import anImage from '@/assets/images/An.png';
 import anhImage from '@/assets/images/Anh.png';
-import thaoImage from '@/assets/images/Thao.png';
+import thaoImage from '@/assets/images/Thảo.png';
 import nhiGroomingImage from '@/assets/images/Nhi.png';
 import vyImage from '@/assets/images/Vy.png';
 
