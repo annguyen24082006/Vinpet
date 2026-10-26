@@ -399,13 +399,12 @@ export function HomePage({ navigate }: { navigate: (path: string) => void }) {
         </div>
       </section>
 
-      {/* SLOGAN CTA */}
+   {/* SLOGAN CTA */}
       <section className="relative overflow-hidden bg-sapphire-950 py-24">
         <div className="absolute inset-0 bg-sapphire-radial" />
         <div className="relative mx-auto max-w-4xl px-5 text-center sm:px-8">
           <p className="font-display text-3xl italic leading-snug text-ivory sm:text-4xl">
-            "Premium, safe and joyful pet experiences within the{' '}
-            <span className="text-gold-gradient">Vingroup lifestyle ecosystem</span>."
+            "<span className="text-gold-gradient">Every journey includes your pet</span>"
           </p>
           <div className="gold-divider" />
           <p className="text-sm uppercase tracking-[0.3em] text-gold-400">{t('Slogan VinPet', 'The VinPet slogan')}</p>
