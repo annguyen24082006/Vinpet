@@ -103,7 +103,7 @@ export function DestinationsPage() {
                 
                 <div className="flex flex-wrap items-baseline gap-3">
                   <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white drop-shadow-md">
-                    450.000đ <span className="text-2xl sm:text-3xl font-medium text-gold-300">/ thú cưng</span>
+                    450.000đ <span className="text-2xl sm:text-3xl font-medium text-gold-300">/ pet</span>
                   </span>
                   <span className="rounded-xl border border-gold-400/50 bg-gold-500/20 px-3 py-1 font-display text-sm sm:text-base font-bold uppercase tracking-wider text-gold-300">
                     {t('ĐỒNG GIÁ TOÀN HỆ THỐNG', 'FLAT RATE ALL RESORTS')}
@@ -395,7 +395,7 @@ export function DestinationsPage() {
                     className="h-28 w-28 rounded-xl object-cover object-top border border-gold-400/40"
                   />
                   <p className="mt-2 text-xs font-bold text-white">BS. CKI. Phương Thảo</p>
-                  <p className="text-[10px] text-gold-400 font-semibold">{t('Trưởng bộ phận Thú y', 'Head of Vet Care')}</p>
+                  <p className="text-[10px] text-gold-400 font-semibold">{t('Giám đốc Y khoa', 'Medical Director')}</p>
                 </div>
 
                 <div className="rounded-2xl border border-gold-400/40 bg-sapphire-900/80 p-3 text-center shadow-md">
@@ -405,7 +405,7 @@ export function DestinationsPage() {
                     className="h-28 w-28 rounded-xl object-cover object-top border border-gold-400/40"
                   />
                   <p className="mt-2 text-xs font-bold text-white">BS. Phương An</p>
-                  <p className="text-[10px] text-gold-400 font-semibold">{t('Ngoại khoa & Da liễu', 'Surgery & Derm')}</p>
+                  <p className="text-[10px] text-gold-400 font-semibold">{t('Trưởng khoa Phẫu thuật & Da liễu', 'Director of Surgical & Dermatological Care')}</p>
                 </div>
               </div>
             </div>
